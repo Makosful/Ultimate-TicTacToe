@@ -1,4 +1,4 @@
-package move;
+package game.bll.interfaces.move;
 
 /**
  *

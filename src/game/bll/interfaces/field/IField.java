@@ -1,7 +1,7 @@
-package field;
+package game.bll.interfaces.field;
 
 import java.util.List;
-import move.IMove;
+import game.bll.interfaces.move.IMove;
 
 /**
  *
