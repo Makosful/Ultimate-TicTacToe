@@ -91,6 +91,7 @@ public class GameController implements Initializable
     {
         Button button = (Button) event.getSource();
         button.setText("X");
+        button.setDisable(true);
     }
 
     private void test()

@@ -1,0 +1,25 @@
+.root {
+    -fx-background-color: #090a0c, linear-gradient(#38424b 0%, #22272c 100%);
+}
+
+.button {
+    -fx-background-color: gainsboro;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: transparent;
+}
+
+.button:hover {
+    -fx-border-color: rgba(0, 230, 0, 1);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 3px;
+}
+
+.button:disabled, .button:disabled > * {
+    -fx-opacity: 1;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: indianred;
+    -fx-border-width: 2px;
+}
