@@ -53,6 +53,11 @@ public class Model
         sm.setActiveScene(i);
     }
 
+    /**
+     * Hands over the Placement Utility
+     *
+     * @return
+     */
     public PlacementUtil getPlacementUtil()
     {
         return sm.getPlacementUtil();

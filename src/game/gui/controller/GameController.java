@@ -1,6 +1,7 @@
 package game.gui.controller;
 
 import com.github.makosful.stage.entities.Docking;
+import game.be.Move;
 import game.gui.model.Model;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,14 +27,16 @@ public class GameController implements Initializable
 
     @FXML
     private ToggleGroup windowSize;
-    @FXML
+    @FXML // Used in handleSizeChange
     private RadioMenuItem size1;
-    @FXML
+    @FXML // Used in handleSizeChange
     private RadioMenuItem size2;
-    @FXML
+    @FXML // Used in handleSizeChange
     private RadioMenuItem size3;
     @FXML
     private GridPane gridMacro;
+
+    private Move[][] moves;
 
     /**
      * Initializes the controller class.
@@ -45,6 +48,8 @@ public class GameController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         model = Model.getInstance();
+
+        moves = new Move[9][9];
     }
 
     @FXML
@@ -83,6 +88,7 @@ public class GameController implements Initializable
     @FXML
     private void handleButtonPress(ActionEvent event)
     {
+
     }
 
     /**
