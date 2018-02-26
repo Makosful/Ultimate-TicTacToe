@@ -10,10 +10,6 @@ import game.bll.interfaces.IGameState;
 public class GameState implements IGameState
 {
 
-    public GameState()
-    {
-    }
-
     @Override
     public IField getField()
     {

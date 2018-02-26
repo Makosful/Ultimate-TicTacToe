@@ -1,4 +1,7 @@
-package game.bll.interfaces;
+package game.bll.bots;
+
+import game.bll.interfaces.IGameState;
+import game.be.IMove;
 
 /**
  *

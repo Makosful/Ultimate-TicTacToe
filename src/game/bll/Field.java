@@ -1,7 +1,7 @@
 package game.bll;
 
 import game.bll.interfaces.IField;
-import game.bll.interfaces.IMove;
+import game.be.IMove;
 import java.util.List;
 
 /**
@@ -10,10 +10,6 @@ import java.util.List;
  */
 public class Field implements IField
 {
-
-    public Field()
-    {
-    }
 
     @Override
     public void clearBoard()

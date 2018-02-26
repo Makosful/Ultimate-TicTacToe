@@ -1,5 +1,6 @@
 package game.bll.interfaces;
 
+import game.be.IMove;
 import java.util.List;
 
 /**

@@ -1,6 +1,4 @@
-package game.bll;
-
-import game.bll.interfaces.IMove;
+package game.be;
 
 /**
  *
