@@ -1,6 +1,8 @@
 package game.gui.model;
 
 import com.github.makosful.stage.utils.StageManager;
+import game.bll.GameManager;
+import game.bll.GameState;
 
 /**
  *
@@ -19,12 +21,14 @@ public class Model
     //</editor-fold>
 
     private StageManager sm;
+    private GameManager gm;
 
     /**
      * Singleton Constructor
      */
     private Model()
     {
+        gm = new GameManager(new GameState());
     }
 
     /**

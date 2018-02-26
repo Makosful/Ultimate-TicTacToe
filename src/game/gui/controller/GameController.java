@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
@@ -83,6 +84,26 @@ public class GameController implements Initializable
 
     private void changeSizeSmall()
     {
+    }
+
+    @FXML
+    private void handleButtonPress(ActionEvent event)
+    {
+        Button button = (Button) event.getSource();
+        button.setText("X");
+    }
+
+    private void test()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            GridPane grid = (GridPane) gridMacro.getChildren().get(i);
+            for (int j = 0; j < 9; j++)
+            {
+                Button button = (Button) grid.getChildren().get(j);
+                button.setPrefSize(60, 60);
+            }
+        }
     }
 
 }
