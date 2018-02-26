@@ -15,8 +15,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Axl
  */
-public class GameModeController implements Initializable
-{
+public class GameModeController implements Initializable {
 
     private Model model;
     @FXML
@@ -31,24 +30,28 @@ public class GameModeController implements Initializable
     private JFXButton btnPlay;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
+    public void initialize(URL url, ResourceBundle rb) {
         model = Model.getInstance();
     }
 
     @FXML
-    private void PlayVsComputer(ActionEvent event)
-    {
+    private void PlayVsComputer(ActionEvent event) {
+        if (btnPvC.isSelected()) {
+            btnPvC.setDisable(true);
+            btnPvP.setDisable(false);
+        }
     }
 
     @FXML
-    private void PlayVsPlayer(ActionEvent event)
-    {
+    private void PlayVsPlayer(ActionEvent event) {
+        if (btnPvP.isSelected()) {
+            btnPvC.setDisable(false);
+            btnPvP.setDisable(true);
+        }
     }
 
     @FXML
-    private void StartGame(ActionEvent event)
-    {
+    private void StartGame(ActionEvent event) {
         model.changeScene(2);
     }
 

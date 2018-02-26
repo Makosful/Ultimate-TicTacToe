@@ -43,3 +43,7 @@
 .button Text {
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 1), 1, 0, 0, 1);
 }
+
+.button:disabled, .button:disabled > * {
+    -fx-opacity: 1;
+}
