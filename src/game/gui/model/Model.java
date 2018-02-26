@@ -36,4 +36,9 @@ public class Model
     {
         this.sm = sm;
     }
+
+    public void changeStage(int i)
+    {
+        sm.setActiveScene(i);
+    }
 }
