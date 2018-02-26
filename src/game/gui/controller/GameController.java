@@ -1,5 +1,7 @@
 package game.gui.controller;
 
+import com.github.makosful.stage.entities.Docking;
+import game.gui.model.Model;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -9,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -17,6 +21,8 @@ import javafx.scene.layout.GridPane;
  */
 public class GameController implements Initializable
 {
+
+    private Model model;
 
     @FXML
     private ToggleGroup windowSize;
@@ -38,7 +44,7 @@ public class GameController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        // TODO
+        model = Model.getInstance();
     }
 
     @FXML
@@ -74,36 +80,56 @@ public class GameController implements Initializable
         }
     }
 
-    private void changeSizeBig()
-    {
-    }
-
-    private void changeSizeMedium()
-    {
-    }
-
-    private void changeSizeSmall()
-    {
-    }
-
     @FXML
     private void handleButtonPress(ActionEvent event)
     {
-        Button button = (Button) event.getSource();
-        button.setText("X");
     }
 
-    private void test()
+    /**
+     * Changes the field size
+     */
+    private void changeSizeBig()
     {
-        for (int i = 0; i < 9; i++)
+        changeSize(90, 40);
+    }
+
+    /**
+     * Changes the field size to medium
+     */
+    private void changeSizeMedium()
+    {
+        changeSize(60, 25);
+    }
+
+    /**
+     * Change the field size to small
+     */
+    private void changeSizeSmall()
+    {
+        changeSize(30, 10);
+    }
+
+    /**
+     * Changes the size of the field
+     *
+     * @param p The size of each button
+     * @param f The font size
+     */
+    private void changeSize(int p, int f)
+    {
+        for (int i = 0; i < gridMacro.getChildren().size(); i++)
         {
             GridPane grid = (GridPane) gridMacro.getChildren().get(i);
-            for (int j = 0; j < 9; j++)
+            for (int j = 0; j < gridMacro.getChildren().size(); j++)
             {
                 Button button = (Button) grid.getChildren().get(j);
-                button.setPrefSize(60, 60);
+                button.setPrefSize(p, p);
+                button.setFont(Font.font(f));
             }
         }
+        Stage stage = (Stage) gridMacro.getScene().getWindow();
+        stage.sizeToScene();
+        model.getPlacementUtil().alignStage(stage, Docking.CENTER);
     }
 
 }

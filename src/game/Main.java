@@ -47,10 +47,10 @@ public class Main extends Application
         try
         {
             sm.registerScene(1,
-                             "",
+                             "Tic Tac Troll | Game Select",
                              getClass().getResource("gui/view/GameMode.fxml"));
             sm.registerScene(2,
-                             "",
+                             "Tic Tac Troll",
                              getClass().getResource("gui/view/Game.fxml"));
         }
         catch (SceneIdAlreadyTakenException | IOException ex)
