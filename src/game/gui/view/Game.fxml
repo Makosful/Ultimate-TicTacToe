@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -19,7 +20,7 @@
    <center>
       <AnchorPane>
          <children>
-            <GridPane hgap="10.0" layoutX="170.0" layoutY="142.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridMacro" hgap="10.0" layoutX="170.0" layoutY="142.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
@@ -575,30 +576,24 @@
         <menus>
           <Menu mnemonicParsing="false" text="Game">
             <items>
-              <MenuItem mnemonicParsing="false" text="New Game" />
-                  <MenuItem mnemonicParsing="false" text="Restart" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#handleNewGame" text="New Game" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleRestart" text="Restart" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Close" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Window">
                <items>
                   <Menu mnemonicParsing="false" text="Window Size">
                      <items>
-                        <RadioMenuItem mnemonicParsing="false" text="1x">
+                        <RadioMenuItem fx:id="size1" mnemonicParsing="false" onAction="#handleSizeChange" text="1x">
                            <toggleGroup>
                               <ToggleGroup fx:id="windowSize" />
                            </toggleGroup>
                         </RadioMenuItem>
-                        <RadioMenuItem mnemonicParsing="false" text="2x">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="windowSize1" />
-                           </toggleGroup>
-                        </RadioMenuItem>
-                        <RadioMenuItem mnemonicParsing="false" text="3x">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="windowSize11" />
-                           </toggleGroup>
-                        </RadioMenuItem>
+                        <RadioMenuItem fx:id="size2" mnemonicParsing="false" onAction="#handleSizeChange" text="2x" toggleGroup="$windowSize" />
+                        <RadioMenuItem fx:id="size3" mnemonicParsing="false" onAction="#handleSizeChange" selected="true" text="3x" toggleGroup="$windowSize" />
                      </items>
                   </Menu>
                </items>

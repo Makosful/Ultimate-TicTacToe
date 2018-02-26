@@ -1,6 +1,6 @@
-package game.bll.interfaces.game;
+package game.bll.interfaces;
 
-import game.bll.interfaces.field.IField;
+import game.bll.interfaces.IField;
 
 /**
  *
