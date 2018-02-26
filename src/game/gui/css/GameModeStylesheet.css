@@ -1,16 +1,45 @@
-.root
-{
-  -fx-border-insets: 10;
+.root {
+    -fx-background-color: #090a0c, linear-gradient(#38424b 0%, #22272c 100%);
+}
 
-  -fx-background-insets: 10;
+.root:focused {
+    -fx-background-color: #487597;
+}
 
-  -fx-background-radius: 5;
+.toggle-button,
+.toggle-button:focused {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
 
-  -fx-border-radius: 5;
+.toggle-button:selected,
+.toggle-button:selected:focused {
+    -fx-background-color: #00b500;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
 
-  -fx-border-color: gray;
+.label {
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+}
 
-  -fx-border-style: solid;
+.button {
+    -fx-background-color: #090a0c, linear-gradient(#a1a3a3 0%, #636667 100%), 
+        linear-gradient(#526570, #464a4e), 
+        radial-gradient(center 50% 50%, 
+        radius 100%, #666666, #a1a3a3);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
 
-  -fx-border-width: 1;
+.button Text {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 1), 1, 0, 0, 1);
 }
