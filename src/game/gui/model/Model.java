@@ -1,5 +1,6 @@
 package game.gui.model;
 
+import com.github.makosful.stage.utils.PlacementUtil;
 import com.github.makosful.stage.utils.StageManager;
 import game.bll.GameManager;
 import game.bll.GameState;
@@ -50,5 +51,10 @@ public class Model
     public void changeScene(int i)
     {
         sm.setActiveScene(i);
+    }
+
+    public PlacementUtil getPlacementUtil()
+    {
+        return sm.getPlacementUtil();
     }
 }
