@@ -1,0 +1,16 @@
+.root
+{
+  -fx-border-insets: 10;
+
+  -fx-background-insets: 10;
+
+  -fx-background-radius: 5;
+
+  -fx-border-radius: 5;
+
+  -fx-border-color: gray;
+
+  -fx-border-style: solid;
+
+  -fx-border-width: 1;
+}
