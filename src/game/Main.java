@@ -9,20 +9,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author Axl
  */
-public class Main extends Application
-{
+public class Main extends Application {
 
     private Model model;
     private StageManager sm;
 
     @Override
-    public void start(Stage stage) throws Exception
-    {
+    public void start(Stage stage) throws Exception {
         sm = new StageManager(stage);
         model = Model.getInstance();
         model.setStageManager(sm);
@@ -30,7 +29,9 @@ public class Main extends Application
         registerScenes(sm);
         sm.setActiveScene(1);
 
-        stage.setTitle("Ultimate TicTacToe");
+//        stage.setTitle("Tic Tac Troll | Select a Game mode");
+        
+        
         stage.show();
         stage.setResizable(false);
         sm.getPlacementUtil().setAutoAlign(true);
@@ -42,15 +43,11 @@ public class Main extends Application
      *
      * @param sm
      */
-    private void registerScenes(StageManager sm)
-    {
-        try
-        {
+    private void registerScenes(StageManager sm) {
+        try {
             sm.registerScene(1, getClass().getResource("gui/view/GameMode.fxml"));
             sm.registerScene(2, getClass().getResource("gui/view/Game.fxml"));
-        }
-        catch (SceneIdAlreadyTakenException | IOException ex)
-        {
+        } catch (SceneIdAlreadyTakenException | IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -58,8 +55,7 @@ public class Main extends Application
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         launch(args);
     }
 
