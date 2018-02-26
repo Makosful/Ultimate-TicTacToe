@@ -37,7 +37,13 @@ public class Model
         this.sm = sm;
     }
 
-    public void changeStage(int i)
+    /**
+     * Change the Scene being displayed.
+     *
+     * @param i The ID if the scene. See Main class for list of registered
+     *          Scenes and their ID
+     */
+    public void changeScene(int i)
     {
         sm.setActiveScene(i);
     }

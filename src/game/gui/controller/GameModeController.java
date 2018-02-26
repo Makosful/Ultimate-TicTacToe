@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 
 /**
  *
@@ -17,19 +16,16 @@ public class GameModeController implements Initializable
 
     private Model model;
 
-    @FXML
-    private Label label;
-
-    @FXML
-    private void handleButtonAction(ActionEvent event)
-    {
-        model.changeStage(2);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
         model = Model.getInstance();
+    }
+
+    @FXML
+    private void handleButtonAction(ActionEvent event)
+    {
+        model.changeScene(2);
     }
 
 }
