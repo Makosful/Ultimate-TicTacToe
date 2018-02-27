@@ -2,8 +2,11 @@ package game.gui.model;
 
 import com.github.makosful.stage.utils.PlacementUtil;
 import com.github.makosful.stage.utils.StageManager;
+import game.be.Move;
+import game.bll.BLLManager;
 import game.bll.GameManager;
 import game.bll.GameState;
+import javafx.scene.layout.GridPane;
 
 /**
  *
@@ -21,8 +24,13 @@ public class Model
     }
     //</editor-fold>
 
+    // Objects
+    private final GameManager gm;
+    private final BLLManager bll;
     private StageManager sm;
-    private GameManager gm;
+
+    // Data
+    private final Move[][] moves;
 
     /**
      * Singleton Constructor
@@ -30,6 +38,9 @@ public class Model
     private Model()
     {
         gm = new GameManager(new GameState());
+        bll = new BLLManager();
+
+        moves = new Move[9][9];
     }
 
     /**
@@ -61,5 +72,10 @@ public class Model
     public PlacementUtil getPlacementUtil()
     {
         return sm.getPlacementUtil();
+    }
+
+    public void calculateBoardFields(GridPane grid)
+    {
+        bll.m(grid);
     }
 }
