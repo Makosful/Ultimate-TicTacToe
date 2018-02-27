@@ -166,6 +166,10 @@ public class GameManager
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private String getCurrentPlayerSymbol()
     {
         if (currentPlayer == 0)
