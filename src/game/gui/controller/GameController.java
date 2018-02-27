@@ -41,6 +41,8 @@ public class GameController implements Initializable {
     private boolean isFieldReady;
     private int turnCounter;
 
+    final static String btnGreenText = "-fx-text-fill: rgba(0, 255, 0, 0.5);";
+
     /**
      * Initializes the controller class.
      *
@@ -63,7 +65,7 @@ public class GameController implements Initializable {
 
                 btn.setOnMouseEntered((MouseEvent me) -> {
                     btn.setText(model.getPlayerChar());
-                    btn.setStyle("-fx-text-fill: rgba(80, 80, 80, 1);");
+                    btn.setStyle(btnGreenText);
                     isFieldReady = true;
                 });
 
