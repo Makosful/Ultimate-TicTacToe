@@ -89,10 +89,9 @@ public class GameController implements Initializable
         int y;
         int x;
         Button button = (Button) grid.getChildren().get(field);
-        button.setFont(Font.font(24));
         x = calcX(acc);
         y = calcY(acc);
-        button.setText(x + ";" + y);
+        button.setText("O");
         moves[x][y] = new Move(x, y);
         acc++;
         return acc;
@@ -169,7 +168,7 @@ public class GameController implements Initializable
      */
     private void changeSizeBig()
     {
-        changeSize(90, 40);
+        changeSize(90, 36);
     }
 
     /**
@@ -177,7 +176,7 @@ public class GameController implements Initializable
      */
     private void changeSizeMedium()
     {
-        changeSize(60, 25);
+        changeSize(60, 24);
     }
 
     /**
@@ -185,7 +184,7 @@ public class GameController implements Initializable
      */
     private void changeSizeSmall()
     {
-        changeSize(30, 10);
+        changeSize(30, 12);
     }
 
     /**
