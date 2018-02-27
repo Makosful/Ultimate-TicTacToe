@@ -7,19 +7,23 @@ package game.be;
 public class Move implements IMove
 {
 
-    public Move()
+    private final int x, y;
+
+    public Move(int x, int y)
     {
+        this.x = x;
+        this.y = y;
     }
 
     @Override
     public int getX()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return x;
     }
 
     @Override
     public int getY()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return y;
     }
 }

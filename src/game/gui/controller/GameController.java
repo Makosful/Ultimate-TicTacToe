@@ -50,6 +50,54 @@ public class GameController implements Initializable
         model = Model.getInstance();
 
         moves = new Move[9][9];
+
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i < 9; i++)
+        {
+
+            GridPane grid = (GridPane) gridMacro.getChildren().get(i);
+            for (int j = 0; j < 3; j++)
+                a = doTheThing(grid, j, a);
+            a += 6;
+            for (int j = 0; j < 3; j++)
+                a = doTheThing(grid, j + 3, a);
+            a += 6;
+            for (int j = 0; j < 3; j++)
+                a = doTheThing(grid, j + 6, a);
+
+            // Corrects (a) every 3 rows
+            b++;
+            if (b <= 2)
+                a -= (6 * 3);
+            else
+                b = 0;
+        }
+    }
+
+    private int doTheThing(GridPane grid, int j, int a)
+    {
+        int y;
+        int x;
+        Button button = (Button) grid.getChildren().get(j);
+        button.setFont(Font.font(24));
+        y = calcY(a);
+        x = calcX(a);
+        button.setText(x + ";" + y);
+        moves[x][y] = new Move(x, y);
+        a++;
+        return a;
+    }
+
+    private int calcY(double a)
+    {
+        double t = a / 9;
+        return (int) Math.floor(t);
+    }
+
+    private int calcX(double a)
+    {
+        return (int) (a % 9);
     }
 
     @FXML
@@ -137,5 +185,4 @@ public class GameController implements Initializable
         stage.sizeToScene();
         model.getPlacementUtil().alignStage(stage, Docking.CENTER);
     }
-
 }
