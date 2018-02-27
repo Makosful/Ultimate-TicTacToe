@@ -604,7 +604,7 @@
    <bottom>
       <AnchorPane fx:id="botAnchorPane" prefHeight="21.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblAmountOfTurns" text="0 turns have been made" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label fx:id="lblAmountOfTurns" text="0 turns" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="15.0" />
                </font>

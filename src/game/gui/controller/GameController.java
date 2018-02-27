@@ -231,6 +231,10 @@ public class GameController implements Initializable {
     //</editor-fold>
 
     private void updateText() {
-        lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turns have been made");
+        if (turnCounter == 1) {
+            lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turn");
+        } else {
+            lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turns");
+        }
     }
 }
