@@ -22,21 +22,24 @@ public class BLLManager
             for (int j = 0; j < 3; j++)
             {
                 Button button = (Button) grid.getChildren().get(j);
-                calculateXY(acc, moves);
+                button.setId(acc + "");
+                calculateXY(acc, button, moves);
                 acc++;
             }
             acc += 6;
             for (int j = 0; j < 3; j++)
             {
                 Button button = (Button) grid.getChildren().get(j + 3);
-                calculateXY(acc, moves);
+                button.setId(acc + "");
+                calculateXY(acc, button, moves);
                 acc++;
             }
             acc += 6;
             for (int j = 0; j < 3; j++)
             {
                 Button button = (Button) grid.getChildren().get(j + 6);
-                calculateXY(acc, moves);
+                button.setId(acc + "");
+                calculateXY(acc, button, moves);
                 acc++;
             }
 
@@ -56,11 +59,12 @@ public class BLLManager
      * @param acc
      * @param moves
      */
-    private void calculateXY(int acc, Move[][] moves)
+    private void calculateXY(int acc, Button button, Move[][] moves)
     {
         int x = calcX(acc);
         int y = calcY(acc);
         moves[x][y] = new Move(x, y);
+        button.setId(x + "" + y);
     }
 
     /**

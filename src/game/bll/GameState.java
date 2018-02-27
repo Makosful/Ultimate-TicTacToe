@@ -10,33 +10,44 @@ import game.bll.interfaces.IGameState;
 public class GameState implements IGameState
 {
 
+    private final IField field;
+    private int moveNumber;
+    private int roundNumber;
+
+    public GameState(IField field)
+    {
+        this.field = field;
+        this.moveNumber = 0;
+        this.roundNumber = 0;
+    }
+
     @Override
     public IField getField()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.field;
     }
 
     @Override
     public int getMoveNumber()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.moveNumber;
     }
 
     @Override
     public void setMoveNumber(int moveNumber)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.moveNumber = moveNumber;
     }
 
     @Override
     public int getRoundNumber()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.roundNumber;
     }
 
     @Override
     public void setRoundNumber(int roundNumber)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.roundNumber = roundNumber;
     }
 }

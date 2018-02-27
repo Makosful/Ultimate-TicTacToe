@@ -1,7 +1,7 @@
 package game.bll;
 
-import game.bll.interfaces.IField;
 import game.be.IMove;
+import game.bll.interfaces.IField;
 import java.util.List;
 
 /**
@@ -11,10 +11,21 @@ import java.util.List;
 public class Field implements IField
 {
 
+    private String[][] microBoard;
+    private String[][] macroBoard;
+
+    public Field()
+    {
+        microBoard = new String[9][9];
+        macroBoard = new String[3][3];
+
+        setDefaults();
+    }
+
     @Override
     public void clearBoard()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        setDefaults();
     }
 
     @Override
@@ -38,36 +49,52 @@ public class Field implements IField
     @Override
     public boolean isFull()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for (int x = 0; x < 9; x++)
+            for (int y = 0; y < 9; y++)
+                if (macroBoard[x][y].contains(EMPTY_FIELD))
+                    return true;
+        return false;
     }
 
     @Override
     public Boolean isInActiveMicroboard(int x, int y)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return macroBoard[x / 3][y / 3].contains(AVAILABLE_FIELD);
     }
 
     @Override
     public String[][] getBoard()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return microBoard;
     }
 
     @Override
     public String[][] getMacroboard()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return macroBoard;
     }
 
     @Override
     public void setBoard(String[][] board)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.microBoard = board;
     }
 
     @Override
     public void setMacroboard(String[][] macroboard)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.macroBoard = macroboard;
     }
+
+    private void setDefaults()
+    {
+        for (int x = 0; x < 3; x++)
+            for (int y = 0; y < 3; y++)
+                macroBoard[x][y] = AVAILABLE_FIELD;
+
+        for (int x = 0; x < 9; x++)
+            for (int y = 0; y < 9; y++)
+                microBoard[x][y] = EMPTY_FIELD;
+    }
+
 }

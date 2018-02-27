@@ -1,8 +1,8 @@
 package game.bll;
 
+import game.be.IMove;
 import game.bll.bots.IBot;
 import game.bll.interfaces.IGameState;
-import game.be.IMove;
 
 /**
  * This is a proposed GameManager for Ultimate Tic-Tac-Toe,
@@ -99,7 +99,7 @@ public class GameManager
 
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
-
+        printDebugField(currentState.getField().getBoard());
         return true;
     }
 
@@ -144,13 +144,22 @@ public class GameManager
 
     private void UpdateBoard(IMove move)
     {
-        //TODO: Update the board to the new state
-        throw new UnsupportedOperationException("Not supported yet.");
+        currentState.getField().getBoard()[move.getX()][move.getY()] = "X";
     }
 
     private void UpdateMacroboard(IMove move)
     {
         //TODO: Update the macroboard to the new state
-        throw new UnsupportedOperationException("Not supported yet.");
+//        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    private void printDebugField(String[][] microBoard)
+    {
+        for (int x = 0; x < 9; x++)
+        {
+            for (int y = 0; y < 9; y++)
+                System.out.print(microBoard[x][y] + " ");
+            System.out.println();
+        }
     }
 }

@@ -106,7 +106,8 @@ public class GameController implements Initializable
     private void handleButtonPress(ActionEvent event)
     {
         Button btn = (Button) event.getSource();
-        btn.setText("X");
+        System.out.println("XY: " + btn.getId());
+        model.doMove(btn.getId());
     }
     //</editor-fold>
 

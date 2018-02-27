@@ -4,8 +4,11 @@ import com.github.makosful.stage.utils.PlacementUtil;
 import com.github.makosful.stage.utils.StageManager;
 import game.be.Move;
 import game.bll.BLLManager;
+import game.bll.Field;
 import game.bll.GameManager;
 import game.bll.GameState;
+import game.bll.interfaces.IField;
+import game.bll.interfaces.IGameState;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -26,6 +29,8 @@ public class Model
 
     // Objects
     private final GameManager gm;
+    private final IGameState gs;
+    private final IField field;
     private final BLLManager bll;
     private StageManager sm;
 
@@ -37,7 +42,9 @@ public class Model
      */
     private Model()
     {
-        gm = new GameManager(new GameState());
+        field = new Field();
+        gs = new GameState(field);
+        gm = new GameManager(gs);
         bll = new BLLManager();
 
         moves = new Move[9][9];
@@ -77,5 +84,14 @@ public class Model
     public void calculateFieldPositions(GridPane grid)
     {
         bll.calculateFiledPositions(grid, moves);
+    }
+
+    public void doMove(String id)
+    {
+        String xString = String.valueOf(id.charAt(0));
+        String yString = String.valueOf(id.charAt(1));
+        int x = Integer.parseInt(xString);
+        int y = Integer.parseInt(yString);
+        gm.UpdateGame(moves[x][y]);
     }
 }

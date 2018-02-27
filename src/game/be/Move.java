@@ -26,4 +26,10 @@ public class Move implements IMove
     {
         return y;
     }
+
+    @Override
+    public String toString()
+    {
+        return "X: " + getX() + ", Y: " + getY();
+    }
 }
