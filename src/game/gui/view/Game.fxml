@@ -45,47 +45,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -104,47 +104,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -163,47 +163,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -222,47 +222,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -281,47 +281,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -340,47 +340,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -399,47 +399,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -458,47 +458,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -517,47 +517,47 @@
                      <children>
                         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="210.0" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="10.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                         <Button layoutX="110.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="90.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font size="40.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
