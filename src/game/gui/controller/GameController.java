@@ -45,7 +45,7 @@ public class GameController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         model = Model.getInstance();
-        model.calculateBoardFields(gridMacro);
+        model.calculateFieldPositions(gridMacro);
     }
 
     @FXML

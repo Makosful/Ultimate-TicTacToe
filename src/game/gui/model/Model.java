@@ -74,8 +74,8 @@ public class Model
         return sm.getPlacementUtil();
     }
 
-    public void calculateBoardFields(GridPane grid)
+    public void calculateFieldPositions(GridPane grid)
     {
-        bll.m(grid);
+        bll.calculateFiledPositions(grid, moves);
     }
 }

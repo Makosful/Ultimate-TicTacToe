@@ -15,9 +15,8 @@ public class BLLManager
     {
     }
 
-    public Move[][] m(GridPane gridPane)
+    public Move[][] calculateFiledPositions(GridPane gridPane, Move[][] moves)
     {
-        Move[][] moves = new Move[9][9];
         int acc = 0;
         int dec = 0;
         for (int i = 0; i < 9; i++)
