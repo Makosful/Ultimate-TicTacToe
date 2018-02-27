@@ -24,7 +24,7 @@ public class GameController implements Initializable
 
     private Model model;
 
-    @FXML
+    @FXML // Used in handleSizeChange
     private ToggleGroup windowSize;
     @FXML // Used in handleSizeChange
     private RadioMenuItem size1;
@@ -48,21 +48,38 @@ public class GameController implements Initializable
         model.calculateFieldPositions(gridMacro);
     }
 
+    //<editor-fold defaultstate="collapsed" desc="FXML Callbacks">
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleNewGame(ActionEvent event)
     {
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleRestart(ActionEvent event)
     {
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleClose(ActionEvent event)
     {
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleSizeChange(ActionEvent event)
     {
@@ -81,12 +98,19 @@ public class GameController implements Initializable
         }
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonPress(ActionEvent event)
     {
-
+        Button btn = (Button) event.getSource();
+        btn.setText("X");
     }
+    //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Change Size">
     /**
      * Changes the field size
      */
@@ -133,4 +157,5 @@ public class GameController implements Initializable
         stage.sizeToScene();
         model.getPlacementUtil().alignStage(stage, Docking.CENTER);
     }
+    //</editor-fold>
 }
