@@ -5,25 +5,21 @@ import game.bll.bots.IBot;
 import game.bll.interfaces.IGameState;
 
 /**
- * This is a proposed GameManager for Ultimate Tic-Tac-Toe,
- * the implementation of which is up to whoever uses this interface.
- * Note that initializing a game through the constructors means
- * that you have to create a new instance of the game manager
- * for every new game of a different type (e.g. Human vs Human, Human vs Bot or
- * Bot vs Bot),
- * which may not be ideal for your solution, so you could consider refactoring
- * that into an (re-)initialize method instead.
+ * This is a proposed GameManager for Ultimate Tic-Tac-Toe, the implementation
+ * of which is up to whoever uses this interface. Note that initializing a game
+ * through the constructors means that you have to create a new instance of the
+ * game manager for every new game of a different type (e.g. Human vs Human,
+ * Human vs Bot or Bot vs Bot), which may not be ideal for your solution, so you
+ * could consider refactoring that into an (re-)initialize method instead.
  *
  * @author mjl
  */
-public class GameManager
-{
+public class GameManager {
 
     /**
      * Three different game modes.
      */
-    public enum GameMode
-    {
+    public enum GameMode {
         HumanVsHuman,
         HumanVsBot,
         BotVsBot
@@ -34,48 +30,45 @@ public class GameManager
     private GameMode mode = GameMode.HumanVsHuman;
     private IBot bot = null;
     private IBot bot2 = null;
-    private final String p1 = "X";
-    private final String p2 = "O";
+    private final String player_x = "X";
+    private final String player_o = "O";
 
     /**
-     * Set's the currentState so the game can begin.
-     * Game expected to be played Human vs Human
+     * Set's the currentState so the game can begin. Game expected to be played
+     * Human vs Human
      *
-     * @param currentState Current game state, usually an empty board,
-     *                     but could load a saved game.
+     * @param currentState Current game state, usually an empty board, but could
+     * load a saved game.
      */
-    public GameManager(IGameState currentState)
-    {
+    public GameManager(IGameState currentState) {
         this.currentState = currentState;
         mode = GameMode.HumanVsHuman;
     }
 
     /**
-     * Set's the currentState so the game can begin.
-     * Game expected to be played Human vs Bot
+     * Set's the currentState so the game can begin. Game expected to be played
+     * Human vs Bot
      *
-     * @param currentState Current game state, usually an empty board,
-     *                     but could load a saved game.
-     * @param bot          The bot to play against in vsBot mode.
+     * @param currentState Current game state, usually an empty board, but could
+     * load a saved game.
+     * @param bot The bot to play against in vsBot mode.
      */
-    public GameManager(IGameState currentState, IBot bot)
-    {
+    public GameManager(IGameState currentState, IBot bot) {
         this.currentState = currentState;
         mode = GameMode.HumanVsBot;
         this.bot = bot;
     }
 
     /**
-     * Set's the currentState so the game can begin.
-     * Game expected to be played Bot vs Bot
+     * Set's the currentState so the game can begin. Game expected to be played
+     * Bot vs Bot
      *
-     * @param currentState Current game state, usually an empty board,
-     *                     but could load a saved game.
-     * @param bot          The first bot to play.
-     * @param bot2         The second bot to play.
+     * @param currentState Current game state, usually an empty board, but could
+     * load a saved game.
+     * @param bot The first bot to play.
+     * @param bot2 The second bot to play.
      */
-    public GameManager(IGameState currentState, IBot bot, IBot bot2)
-    {
+    public GameManager(IGameState currentState, IBot bot, IBot bot2) {
         this.currentState = currentState;
         mode = GameMode.BotVsBot;
         this.bot = bot;
@@ -89,12 +82,12 @@ public class GameManager
      *
      * @return Returns true if the update was successful, false otherwise.
      */
-    public Boolean UpdateGame(IMove move)
-    {
+    public Boolean UpdateGame(IMove move) {
         System.out.println(move);
         //Verify the new move
-        if (!VerifyMoveLegality(move))
+        if (!VerifyMoveLegality(move)) {
             return false;
+        }
 
         //Update the currentState
         UpdateBoard(move);
@@ -111,14 +104,12 @@ public class GameManager
      *
      * @return Returns true if the update was successful, false otherwise.
      */
-    public Boolean UpdateGame()
-    {
+    public Boolean UpdateGame() {
         //Check game mode is set to one of the bot modes.
         assert (mode != GameMode.HumanVsHuman);
 
         //Check if player is bot, if so, get bot input and update the state based on that.
-        if (mode == GameMode.HumanVsBot && currentPlayer == 1)
-        {
+        if (mode == GameMode.HumanVsBot && currentPlayer == 1) {
             //Check bot is not equal to null, and throw an exception if it is.
             assert (bot != null);
 
@@ -136,8 +127,7 @@ public class GameManager
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    private Boolean VerifyMoveLegality(IMove move)
-    {
+    private Boolean VerifyMoveLegality(IMove move) {
         //Test if the move is legal
         //NOTE: should also check whether the move is placed on an occupied spot.
         System.out.println("Checking move validity against macroboard available field");
@@ -145,23 +135,20 @@ public class GameManager
         return currentState.getField().isInActiveMicroboard(move.getX(), move.getY());
     }
 
-    private void UpdateBoard(IMove move)
-    {
-        currentState.getField().getBoard()[move.getX()][move.getY()] = getCurrentPlayerSymbol();
+    private void UpdateBoard(IMove move) {
+        currentState.getField().getBoard()[move.getX()][move.getY()] = getCurrentPlayerChar();
     }
 
-    private void UpdateMacroboard(IMove move)
-    {
+    private void UpdateMacroboard(IMove move) {
         //TODO: Update the macroboard to the new state
 //        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    private void printDebugField(String[][] microBoard)
-    {
-        for (int y = 0; y < 9; y++)
-        {
-            for (int x = 0; x < 9; x++)
+    private void printDebugField(String[][] microBoard) {
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
                 System.out.print(microBoard[x][y] + " ");
+            }
             System.out.println();
         }
     }
@@ -170,11 +157,11 @@ public class GameManager
      *
      * @return
      */
-    private String getCurrentPlayerSymbol()
-    {
-        if (currentPlayer == 0)
-            return p1;
-        else
-            return p2;
+    public String getCurrentPlayerChar() {
+        if (currentPlayer == 0) {
+            return player_x;
+        } else {
+            return player_o;
+        }
     }
 }

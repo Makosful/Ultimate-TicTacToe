@@ -15,14 +15,12 @@ import javafx.scene.layout.GridPane;
  *
  * @author Axl
  */
-public class Model
-{
+public class Model {
 
     //<editor-fold defaultstate="collapsed" desc="Singleton">
     private static final Model INSTANCE = new Model();
 
-    public static Model getInstance()
-    {
+    public static Model getInstance() {
         return INSTANCE;
     }
     //</editor-fold>
@@ -40,8 +38,7 @@ public class Model
     /**
      * Singleton Constructor
      */
-    private Model()
-    {
+    private Model() {
         field = new Field();
         gs = new GameState(field);
         gm = new GameManager(gs);
@@ -55,8 +52,7 @@ public class Model
      *
      * @param sm
      */
-    public void setStageManager(StageManager sm)
-    {
+    public void setStageManager(StageManager sm) {
         this.sm = sm;
     }
 
@@ -64,10 +60,9 @@ public class Model
      * Change the Scene being displayed.
      *
      * @param i The ID if the scene. See Main class for list of registered
-     *          Scenes and their ID
+     * Scenes and their ID
      */
-    public void changeScene(int i)
-    {
+    public void changeScene(int i) {
         sm.setActiveScene(i);
     }
 
@@ -76,22 +71,23 @@ public class Model
      *
      * @return
      */
-    public PlacementUtil getPlacementUtil()
-    {
+    public PlacementUtil getPlacementUtil() {
         return sm.getPlacementUtil();
     }
 
-    public void calculateFieldPositions(GridPane grid)
-    {
+    public void calculateFieldPositions(GridPane grid) {
         bll.calculateFiledPositions(grid, moves);
     }
 
-    public void doMove(String id)
-    {
+    public void doMove(String id) {
         String xString = String.valueOf(id.charAt(0));
         String yString = String.valueOf(id.charAt(1));
         int x = Integer.parseInt(xString);
         int y = Integer.parseInt(yString);
         gm.UpdateGame(moves[x][y]);
+    }
+
+    public String getPlayerChar() {
+        return gm.getCurrentPlayerChar();
     }
 }
