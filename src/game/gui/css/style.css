@@ -10,7 +10,7 @@
 }
 
 .button:hover {
-    -fx-border-color: rgba(0, 255, 0, 1);
+    -fx-border-color: rgba(80, 80, 80, 1);
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-border-width: 3px;

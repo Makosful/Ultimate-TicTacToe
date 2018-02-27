@@ -5,10 +5,12 @@ import game.gui.model.Model;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
@@ -36,6 +38,9 @@ public class GameController implements Initializable {
     @FXML
     private GridPane gridMacro;
 
+    private boolean isFieldReady;
+    private int turnCounter;
+
     /**
      * Initializes the controller class.
      *
@@ -47,23 +52,29 @@ public class GameController implements Initializable {
         model = Model.getInstance();
         model.calculateFieldPositions(gridMacro);
 
+        setupButtonMouseListener();
+    }
+
+    private void setupButtonMouseListener() {
         for (int i = 0; i < gridMacro.getChildren().size(); i++) {
             GridPane grid = (GridPane) gridMacro.getChildren().get(i);
             for (int j = 0; j < grid.getChildren().size() - 1; j++) {
                 Button btn = (Button) grid.getChildren().get(j);
 
-                btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    public void handle(MouseEvent me) {
-                        btn.setText(model.getPlayerChar());
-                        btn.setStyle("-fx-text-fill: rgba(0, 255, 0, 0.5);");
+                btn.setOnMouseEntered((MouseEvent me) -> {
+                    btn.setText(model.getPlayerChar());
+                    btn.setStyle("-fx-text-fill: rgba(80, 80, 80, 1);");
+                    isFieldReady = true;
+                });
+
+                btn.setOnMouseExited((MouseEvent me) -> {
+                    if (!btn.isDisabled()) {
+                        btn.setText("");
+                    } else {
+                        //Do nothing
                     }
                 });
 
-                btn.setOnMouseExited(new EventHandler<MouseEvent>() {
-                    public void handle(MouseEvent me) {
-                        btn.setText("");
-                    }
-                });
             }
         }
     }
@@ -75,6 +86,36 @@ public class GameController implements Initializable {
      */
     @FXML
     private void handleNewGame(ActionEvent event) {
+
+    }
+
+    private void restartDialog() {
+        Alert alert = new Alert(AlertType.WARNING, "Do you really wish to restart?", ButtonType.YES, ButtonType.CANCEL);
+        alert.setHeaderText("");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.YES) {
+                for (int i = 0; i < gridMacro.getChildren().size(); i++) {
+                    GridPane grid = (GridPane) gridMacro.getChildren().get(i);
+                    for (int j = 0; j < grid.getChildren().size() - 1; j++) {
+                        Button btn = (Button) grid.getChildren().get(j);
+
+                        btn.setText("");
+                        btn.setDisable(false);
+                        turnCounter = 0;
+                    }
+                }
+            }
+        });
+    }
+
+    private void shutdownDialog() {
+        Alert alert = new Alert(AlertType.WARNING, "Do you really wish to shut down the game?", ButtonType.YES, ButtonType.CANCEL);
+        alert.setHeaderText("");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.YES) {
+                System.exit(0);
+            }
+        });
     }
 
     /**
@@ -83,6 +124,7 @@ public class GameController implements Initializable {
      */
     @FXML
     private void handleRestart(ActionEvent event) {
+        restartDialog();
     }
 
     /**
@@ -91,6 +133,7 @@ public class GameController implements Initializable {
      */
     @FXML
     private void handleClose(ActionEvent event) {
+        shutdownDialog();
     }
 
     /**
@@ -120,14 +163,20 @@ public class GameController implements Initializable {
     @FXML
     private void handleButtonPress(ActionEvent event) {
         Button btn = (Button) event.getSource();
-        btn.setDisable(true);
+        if (isFieldReady) {
+            btn.setText(model.getPlayerChar());
+            btn.setStyle("-fx-text-fill: black");
+            btn.disableProperty().set(true);
 
-        model.doMove(btn.getId());
-        System.out.println("XY: " + btn.getId());
+            model.doMove(btn.getId());
+
+            System.out.println("XY: " + btn.getId());
+            isFieldReady = !isFieldReady;
+        }
     }
     //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Change Size">
+
     /**
      * Changes the field size
      */
