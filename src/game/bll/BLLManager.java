@@ -11,10 +11,6 @@ import javafx.scene.layout.GridPane;
 public class BLLManager
 {
 
-    public BLLManager()
-    {
-    }
-
     public Move[][] calculateFiledPositions(GridPane gridPane, Move[][] moves)
     {
         int acc = 0;
@@ -26,30 +22,21 @@ public class BLLManager
             for (int j = 0; j < 3; j++)
             {
                 Button button = (Button) grid.getChildren().get(j);
-                int x = calcX(acc);
-                int y = calcY(acc);
-                button.setText("O");
-                moves[x][y] = new Move(x, y);
+                calculateXY(acc, moves);
                 acc++;
             }
             acc += 6;
             for (int j = 0; j < 3; j++)
             {
                 Button button = (Button) grid.getChildren().get(j + 3);
-                int x = calcX(acc);
-                int y = calcY(acc);
-                button.setText("O");
-                moves[x][y] = new Move(x, y);
+                calculateXY(acc, moves);
                 acc++;
             }
             acc += 6;
             for (int j = 0; j < 3; j++)
             {
                 Button button = (Button) grid.getChildren().get(j + 6);
-                int x = calcX(acc);
-                int y = calcY(acc);
-                button.setText("O");
-                moves[x][y] = new Move(x, y);
+                calculateXY(acc, moves);
                 acc++;
             }
 
@@ -61,6 +48,19 @@ public class BLLManager
                 dec = 0;
         }
         return moves;
+    }
+
+    /**
+     * Calculates X and Y and adds it to the list of moves
+     *
+     * @param acc
+     * @param moves
+     */
+    private void calculateXY(int acc, Move[][] moves)
+    {
+        int x = calcX(acc);
+        int y = calcY(acc);
+        moves[x][y] = new Move(x, y);
     }
 
     /**
