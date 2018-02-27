@@ -51,53 +51,78 @@ public class GameController implements Initializable
 
         moves = new Move[9][9];
 
-        int a = 0;
-        int b = 0;
+        int acc = 0;
+        int dec = 0;
         for (int i = 0; i < 9; i++)
         {
 
             GridPane grid = (GridPane) gridMacro.getChildren().get(i);
             for (int j = 0; j < 3; j++)
-                a = doTheThing(grid, j, a);
-            a += 6;
+                acc = doTheThing(grid, j, acc);
+            acc += 6;
             for (int j = 0; j < 3; j++)
-                a = doTheThing(grid, j + 3, a);
-            a += 6;
+                acc = doTheThing(grid, j + 3, acc);
+            acc += 6;
             for (int j = 0; j < 3; j++)
-                a = doTheThing(grid, j + 6, a);
+                acc = doTheThing(grid, j + 6, acc);
 
             // Corrects (a) every 3 rows
-            b++;
-            if (b <= 2)
-                a -= (6 * 3);
+            dec++;
+            if (dec <= 2)
+                acc -= (6 * 3);
             else
-                b = 0;
+                dec = 0;
         }
     }
 
-    private int doTheThing(GridPane grid, int j, int a)
+    /**
+     * Calculates the XY position of the give field
+     *
+     * @param grid  The GridPan containing the field
+     * @param field The field to calculate
+     * @param acc   The position of the field in the grid, as a line
+     *
+     * @return Increases the acc once
+     */
+    private int doTheThing(GridPane grid, int field, int acc)
     {
         int y;
         int x;
-        Button button = (Button) grid.getChildren().get(j);
+        Button button = (Button) grid.getChildren().get(field);
         button.setFont(Font.font(24));
-        y = calcY(a);
-        x = calcX(a);
+        x = calcX(acc);
+        y = calcY(acc);
         button.setText(x + ";" + y);
         moves[x][y] = new Move(x, y);
-        a++;
-        return a;
+        acc++;
+        return acc;
     }
 
+    /**
+     * Calculates the X position of the field
+     *
+     * @param a The position of the field in a line going from left to right,
+     *          wrapping around every 9 fields
+     *
+     * @return Returns the X position of the field
+     */
+    private int calcX(double a)
+    {
+        return (int) (a % 9);
+    }
+
+    /**
+     * Calculates the y position of the field
+     *
+     * @param a The position of the field in a line of fields, wraaping around
+     *          at every 9 fields
+     *
+     * @return Returns the y position of the field
+     */
     private int calcY(double a)
     {
         double t = a / 9;
         return (int) Math.floor(t);
-    }
-
-    private int calcX(double a)
-    {
-        return (int) (a % 9);
     }
 
     @FXML
