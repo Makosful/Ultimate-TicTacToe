@@ -89,6 +89,7 @@ public class GameManager
      */
     public Boolean UpdateGame(IMove move)
     {
+        System.out.println(move);
         //Verify the new move
         if (!VerifyMoveLegality(move))
             return false;
@@ -144,7 +145,7 @@ public class GameManager
 
     private void UpdateBoard(IMove move)
     {
-        currentState.getField().getBoard()[move.getX()][move.getY()] = "X";
+        currentState.getField().getBoard()[move.getX()][move.getY()] = "Y";
     }
 
     private void UpdateMacroboard(IMove move)
@@ -155,9 +156,9 @@ public class GameManager
 
     private void printDebugField(String[][] microBoard)
     {
-        for (int x = 0; x < 9; x++)
+        for (int y = 0; y < 9; y++)
         {
-            for (int y = 0; y < 9; y++)
+            for (int x = 0; x < 9; x++)
                 System.out.print(microBoard[x][y] + " ");
             System.out.println();
         }
