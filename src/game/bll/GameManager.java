@@ -34,6 +34,8 @@ public class GameManager
     private GameMode mode = GameMode.HumanVsHuman;
     private IBot bot = null;
     private IBot bot2 = null;
+    private final String p1 = "X";
+    private final String p2 = "O";
 
     /**
      * Set's the currentState so the game can begin.
@@ -145,7 +147,7 @@ public class GameManager
 
     private void UpdateBoard(IMove move)
     {
-        currentState.getField().getBoard()[move.getX()][move.getY()] = "Y";
+        currentState.getField().getBoard()[move.getX()][move.getY()] = getCurrentPlayerSymbol();
     }
 
     private void UpdateMacroboard(IMove move)
@@ -162,5 +164,13 @@ public class GameManager
                 System.out.print(microBoard[x][y] + " ");
             System.out.println();
         }
+    }
+
+    private String getCurrentPlayerSymbol()
+    {
+        if (currentPlayer == 0)
+            return p1;
+        else
+            return p2;
     }
 }
