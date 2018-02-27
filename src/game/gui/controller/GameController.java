@@ -11,9 +11,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -37,6 +39,10 @@ public class GameController implements Initializable {
     private RadioMenuItem size3;
     @FXML
     private GridPane gridMacro;
+    @FXML
+    private AnchorPane botAnchorPane;
+    @FXML
+    private Label lblAmountOfTurns;
 
     private boolean isFieldReady;
     private int turnCounter;
@@ -54,10 +60,10 @@ public class GameController implements Initializable {
         model = Model.getInstance();
         model.calculateFieldPositions(gridMacro);
 
-        setupButtonMouseListener();
+        setupListeners();
     }
 
-    private void setupButtonMouseListener() {
+    private void setupListeners() {
         for (int i = 0; i < gridMacro.getChildren().size(); i++) {
             GridPane grid = (GridPane) gridMacro.getChildren().get(i);
             for (int j = 0; j < grid.getChildren().size() - 1; j++) {
@@ -79,6 +85,7 @@ public class GameController implements Initializable {
 
             }
         }
+
     }
 
     //<editor-fold defaultstate="collapsed" desc="FXML Callbacks">
@@ -169,11 +176,13 @@ public class GameController implements Initializable {
             btn.setText(model.getPlayerChar());
             btn.setStyle("-fx-text-fill: black");
             btn.disableProperty().set(true);
-
             model.doMove(btn.getId());
-
-            System.out.println("XY: " + btn.getId());
             isFieldReady = !isFieldReady;
+            turnCounter++;
+
+            updateText();
+
+            System.out.println("X+Y: " + btn.getId());
         }
     }
     //</editor-fold>
@@ -220,4 +229,8 @@ public class GameController implements Initializable {
         model.getPlacementUtil().alignStage(stage, Docking.CENTER);
     }
     //</editor-fold>
+
+    private void updateText() {
+        lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turns have been made");
+    }
 }
