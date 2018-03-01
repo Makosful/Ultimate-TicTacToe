@@ -7,13 +7,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -25,7 +20,8 @@ import javafx.stage.Stage;
  *
  * @author Axl
  */
-public class GameController implements Initializable {
+public class GameController implements Initializable
+{
 
     private Model model;
 
@@ -56,29 +52,36 @@ public class GameController implements Initializable {
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
         model = Model.getInstance();
         model.calculateFieldPositions(gridMacro);
 
         setupListeners();
     }
 
-    private void setupListeners() {
-        for (int i = 0; i < gridMacro.getChildren().size(); i++) {
+    private void setupListeners()
+    {
+        for (int i = 0; i < gridMacro.getChildren().size(); i++)
+        {
             GridPane grid = (GridPane) gridMacro.getChildren().get(i);
-            for (int j = 0; j < grid.getChildren().size() - 1; j++) {
+            for (int j = 0; j < grid.getChildren().size() - 1; j++)
+            {
                 Button btn = (Button) grid.getChildren().get(j);
 
-                btn.setOnMouseEntered((MouseEvent me) -> {
+                btn.setOnMouseEntered((MouseEvent me) ->
+                {
                     btn.setText(model.getPlayerChar());
                     btn.setStyle(btnGreenText);
                     isFieldReady = true;
                 });
 
-                btn.setOnMouseExited((MouseEvent me) -> {
-                    if (!btn.isDisabled()) {
+                btn.setOnMouseExited((MouseEvent me) ->
+                {
+                    if (!btn.isDisabled())
                         btn.setText("");
-                    } else {
+                    else
+                    {
                         //Do nothing
                     }
                 });
@@ -94,18 +97,23 @@ public class GameController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleNewGame(ActionEvent event) {
+    private void handleNewGame(ActionEvent event)
+    {
 
     }
 
-    private void restartDialog() {
+    private void restartDialog()
+    {
         Alert alert = new Alert(AlertType.WARNING, "Do you really wish to restart?", ButtonType.YES, ButtonType.CANCEL);
         alert.setHeaderText("");
-        alert.showAndWait().ifPresent(rs -> {
-            if (rs == ButtonType.YES) {
-                for (int i = 0; i < gridMacro.getChildren().size(); i++) {
+        alert.showAndWait().ifPresent(rs ->
+        {
+            if (rs == ButtonType.YES)
+                for (int i = 0; i < gridMacro.getChildren().size(); i++)
+                {
                     GridPane grid = (GridPane) gridMacro.getChildren().get(i);
-                    for (int j = 0; j < grid.getChildren().size() - 1; j++) {
+                    for (int j = 0; j < grid.getChildren().size() - 1; j++)
+                    {
                         Button btn = (Button) grid.getChildren().get(j);
 
                         btn.setText("");
@@ -113,17 +121,17 @@ public class GameController implements Initializable {
                         turnCounter = 0;
                     }
                 }
-            }
         });
     }
 
-    private void shutdownDialog() {
+    private void shutdownDialog()
+    {
         Alert alert = new Alert(AlertType.WARNING, "Do you really wish to shut down the game?", ButtonType.YES, ButtonType.CANCEL);
         alert.setHeaderText("");
-        alert.showAndWait().ifPresent(rs -> {
-            if (rs == ButtonType.YES) {
+        alert.showAndWait().ifPresent(rs ->
+        {
+            if (rs == ButtonType.YES)
                 System.exit(0);
-            }
         });
     }
 
@@ -132,7 +140,8 @@ public class GameController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleRestart(ActionEvent event) {
+    private void handleRestart(ActionEvent event)
+    {
         restartDialog();
     }
 
@@ -141,7 +150,8 @@ public class GameController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleClose(ActionEvent event) {
+    private void handleClose(ActionEvent event)
+    {
         shutdownDialog();
     }
 
@@ -150,9 +160,11 @@ public class GameController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleSizeChange(ActionEvent event) {
+    private void handleSizeChange(ActionEvent event)
+    {
         RadioMenuItem rmi = (RadioMenuItem) event.getSource();
-        switch (rmi.getId()) {
+        switch (rmi.getId())
+        {
             case "size1":
                 changeSizeSmall();
                 break;
@@ -167,22 +179,24 @@ public class GameController implements Initializable {
 
     /**
      *
-     * @param event
      */
     @FXML
-    private void handleButtonPress(ActionEvent event) {
+    private void handleButtonPress(ActionEvent event)
+    {
         Button btn = (Button) event.getSource();
-        if (isFieldReady) {
-            btn.setText(model.getPlayerChar());
-            btn.setStyle("-fx-text-fill: black");
-            btn.disableProperty().set(true);
-            model.doMove(btn.getId());
-            isFieldReady = !isFieldReady;
-            turnCounter++;
-
-            updateText();
-
-            System.out.println("X+Y: " + btn.getId());
+        if (isFieldReady)
+        {
+            String playerChar = model.getPlayerChar();
+            if (model.doMove(btn.getId()))
+            {
+                btn.setText(playerChar);
+                btn.setStyle("-fx-text-fill: black");
+                btn.disableProperty().set(true);
+                isFieldReady = !isFieldReady;
+                turnCounter++;
+                updateText();
+                System.out.println("X+Y: " + btn.getId());
+            }
         }
     }
     //</editor-fold>
@@ -191,21 +205,24 @@ public class GameController implements Initializable {
     /**
      * Changes the field size
      */
-    private void changeSizeBig() {
+    private void changeSizeBig()
+    {
         changeSize(90, 36);
     }
 
     /**
      * Changes the field size to medium
      */
-    private void changeSizeMedium() {
+    private void changeSizeMedium()
+    {
         changeSize(60, 24);
     }
 
     /**
      * Change the field size to small
      */
-    private void changeSizeSmall() {
+    private void changeSizeSmall()
+    {
         changeSize(30, 12);
     }
 
@@ -215,10 +232,13 @@ public class GameController implements Initializable {
      * @param p The size of each button
      * @param f The font size
      */
-    private void changeSize(int p, int f) {
-        for (int i = 0; i < gridMacro.getChildren().size(); i++) {
+    private void changeSize(int p, int f)
+    {
+        for (int i = 0; i < gridMacro.getChildren().size(); i++)
+        {
             GridPane grid = (GridPane) gridMacro.getChildren().get(i);
-            for (int j = 0; j < gridMacro.getChildren().size(); j++) {
+            for (int j = 0; j < gridMacro.getChildren().size(); j++)
+            {
                 Button button = (Button) grid.getChildren().get(j);
                 button.setPrefSize(p, p);
                 button.setFont(Font.font(f));
@@ -230,11 +250,13 @@ public class GameController implements Initializable {
     }
     //</editor-fold>
 
-    private void updateText() {
-        if (turnCounter == 1) {
+    private void updateText()
+    {
+        // This actually tracks the number of moves.
+        // One turn is when both players have had a chance to move
+        if (turnCounter == 1)
             lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turn");
-        } else {
+        else
             lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turns");
-        }
     }
 }

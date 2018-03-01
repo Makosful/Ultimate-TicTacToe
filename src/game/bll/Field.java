@@ -94,7 +94,7 @@ public class Field implements IField
 
         for (int x = 0; x < 9; x++)
             for (int y = 0; y < 9; y++)
-                microBoard[x][y] = EMPTY_FIELD;
+                microBoard[x][y] = AVAILABLE_FIELD;
     }
 
 }
