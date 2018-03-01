@@ -396,7 +396,23 @@ public class GameManager
     private void UpdateMacroboard(IMove move)
     {
         if (checkWinner(0, 0))
-            System.out.println("Ding ding ding");
+            setWinMicro(0, 0);
+        else if (checkWinner(3, 0))
+            setWinMicro(3, 0);
+        else if (checkWinner(6, 0))
+            setWinMicro(6, 0);
+        else if (checkWinner(0, 3))
+            setWinMicro(0, 3);
+        else if (checkWinner(3, 3))
+            setWinMicro(3, 3);
+        else if (checkWinner(6, 3))
+            setWinMicro(6, 3);
+        else if (checkWinner(0, 6))
+            setWinMicro(0, 6);
+        else if (checkWinner(3, 6))
+            setWinMicro(3, 6);
+        else if (checkWinner(6, 6))
+            setWinMicro(6, 6);
     }
 
     /**
@@ -420,7 +436,18 @@ public class GameManager
 
     private boolean checkMatch(String a, String b, String c)
     {
+        if (a.equalsIgnoreCase(IField.AVAILABLE_FIELD)
+            || a.equalsIgnoreCase(IField.EMPTY_FIELD))
+            return false;
+
         return a.equalsIgnoreCase(b) && a.equalsIgnoreCase(c);
+    }
+
+    private void setWinMicro(int x, int y)
+    {
+        String[][] macro = currentState.getField().getMacroboard();
+
+        macro[x / 3][y / 3] = getCurrentPlayerChar();
     }
 
     private void printDebugField(String[][] microBoard)
