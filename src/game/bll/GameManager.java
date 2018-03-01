@@ -18,6 +18,12 @@ import game.bll.interfaces.IGameState;
 public class GameManager
 {
 
+    private boolean isFieldOccupied(String[][] board, int x, int y)
+    {
+        return !board[x][y].equalsIgnoreCase(player_o)
+               && !board[x][y].equalsIgnoreCase(player_x);
+    }
+
     /**
      * Three different game modes.
      */
@@ -173,10 +179,6 @@ public class GameManager
     {
         currentState.getField().getBoard()[move.getX()][move.getY()]
         = getCurrentPlayerChar();
-    }
-
-    private void UpdateMacroboard(IMove move)
-    {
         Position pos = getMicroPlacement(move);
         clearAvailableMoves();
         switch (pos)
@@ -211,13 +213,15 @@ public class GameManager
         }
     }
 
+    /**
+     * Clears the available moves off the board
+     */
     private void clearAvailableMoves()
     {
         String[][] board = currentState.getField().getBoard();
         for (int y = 0; y < 9; y++)
             for (int x = 0; x < 9; x++)
-                if (!board[x][y].equalsIgnoreCase(player_o)
-                    && !board[x][y].equalsIgnoreCase(player_x))
+                if (isFieldOccupied(board, x, y))
                     board[x][y] = IField.EMPTY_FIELD;
     }
 
@@ -234,7 +238,8 @@ public class GameManager
         String[][] board = currentState.getField().getBoard();
         for (int y = y1; y <= y2; y++)
             for (int x = x1; x <= x2; x++)
-                board[x][y] = IField.AVAILABLE_FIELD;
+                if (isFieldOccupied(board, x, y))
+                    board[x][y] = IField.AVAILABLE_FIELD;
     }
 
     private Position getMicroPlacement(IMove move)
@@ -388,8 +393,39 @@ public class GameManager
     //</editor-fold>
     //</editor-fold>
 
+    private void UpdateMacroboard(IMove move)
+    {
+        if (checkWinner(0, 0))
+            System.out.println("Ding ding ding");
+    }
+
+    /**
+     * Checks if a microBoard has a winner
+     *
+     * @param x1 The x of the top left
+     * @param y1 The y of the top left
+     */
+    private boolean checkWinner(int x, int y)
+    {
+        String[][] board = currentState.getField().getBoard();
+        return checkMatch(board[x][y], board[x + 1][y], board[x + 2][y])
+               || checkMatch(board[x][y + 1], board[x + 1][y + 1], board[x + 2][y + 1])
+               || checkMatch(board[x][y + 2], board[x + 1][y + 2], board[x + 2][y + 2])
+               || checkMatch(board[x][y], board[x][y + 1], board[x][y + 2])
+               || checkMatch(board[x + 1][y], board[x + 1][y + 1], board[x + 1][y + 2])
+               || checkMatch(board[x + 2][y], board[x + 2][y + 1], board[x + 2][y + 2])
+               || checkMatch(board[x][y], board[x + 1][y + 1], board[x + 2][y + 2])
+               || checkMatch(board[x + 2][y], board[x + 1][y + 1], board[x][y + 2]);
+    }
+
+    private boolean checkMatch(String a, String b, String c)
+    {
+        return a.equalsIgnoreCase(b) && a.equalsIgnoreCase(c);
+    }
+
     private void printDebugField(String[][] microBoard)
     {
+        System.out.println("Micro Boards");
         for (int y = 0; y < 9; y++)
         {
             if (y % 3 == 0 && y != 0)
@@ -400,6 +436,16 @@ public class GameManager
                     System.out.print("| ");
                 System.out.print(microBoard[x][y] + " ");
             }
+            System.out.println();
+        }
+
+        System.out.println("");
+        System.out.println("Macro Board");
+        String[][] macroboard = currentState.getField().getMacroboard();
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+                System.out.print(macroboard[x][y] + " ");
             System.out.println();
         }
     }
