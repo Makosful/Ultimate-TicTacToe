@@ -46,11 +46,20 @@ public class BLLManager
             // Corrects (a) every 3 rows
             dec++;
             if (dec <= 2)
+            {
                 acc -= (6 * 3);
+            }
             else
+            {
                 dec = 0;
+            }
         }
         return moves;
+    }
+
+    public int calculateMacroGrid(int x, int y)
+    {
+        return x + (y * 3);
     }
 
     /**

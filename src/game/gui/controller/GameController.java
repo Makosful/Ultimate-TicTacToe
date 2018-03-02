@@ -1,6 +1,8 @@
 package game.gui.controller;
 
 import com.github.makosful.stage.entities.Docking;
+import game.bll.GameManager;
+import game.bll.interfaces.IField;
 import game.gui.model.Model;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,7 +45,7 @@ public class GameController implements Initializable
     private boolean isFieldReady;
     private int turnCounter;
 
-    final static String btnGreenText = "-fx-text-fill: rgba(0, 255, 0, 0.5);";
+    final static String BTN_GREEN_TEXT = "-fx-text-fill: rgba(0, 255, 0, 0.5);";
 
     /**
      * Initializes the controller class.
@@ -60,6 +62,12 @@ public class GameController implements Initializable
         setupListeners();
     }
 
+    private boolean isFieldOccupied(String[][] macro, int x, int y)
+    {
+        return macro[x][y].equalsIgnoreCase(GameManager.player_o)
+               || macro[x][y].equalsIgnoreCase(GameManager.player_x);
+    }
+
     private void setupListeners()
     {
         for (int i = 0; i < gridMacro.getChildren().size(); i++)
@@ -72,7 +80,7 @@ public class GameController implements Initializable
                 btn.setOnMouseEntered((MouseEvent me) ->
                 {
                     btn.setText(model.getPlayerChar());
-                    btn.setStyle(btnGreenText);
+                    btn.setStyle(BTN_GREEN_TEXT);
                     isFieldReady = true;
                 });
 
@@ -196,7 +204,7 @@ public class GameController implements Initializable
             if (model.doMove(btn.getId()))
             {
                 btn.setText(playerChar);
-                if (playerChar == "X")
+                if ("X".equals(playerChar))
                 {
 //                    gridMacro.getChildren()..setStyle("-fx-background-: black");
                 }
@@ -262,12 +270,30 @@ public class GameController implements Initializable
 
     private void showCurrentField()
     {
-        String[][] mB = model.getMakro().getField().getMacroboard();
+        String[][] macro = model.getMakro().getField().getMacroboard();
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
             {
-                System.out.print(mB[x][y]);
+                if (!isFieldOccupied(macro, x, y))
+                {
+                    // If the Macro Field isn't won by either player
+                    // AKA: The field is empty
+                    GridPane grid = (GridPane) gridMacro.getChildren().get(model.getGridPos(x, y));
+                }
+                if (macro[x][y].equalsIgnoreCase(IField.AVAILABLE_FIELD))
+                {
+                    // If the MAcro Field is available for moves
+                    // AKA: The field is Available
+                }
+                if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
+                {
+                    // If player X has won this field
+                }
+                if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
+                {
+                    // If player O has won this field
+                }
             }
             System.out.println();
         }

@@ -23,8 +23,8 @@ public class GameManager
     private GameMode mode = GameMode.HumanVsHuman;
     private IBot bot = null;
     private IBot bot2 = null;
-    private final String player_x = "X";
-    private final String player_o = "O";
+    public static final String player_x = "X";
+    public static final String player_o = "O";
 
     /**
      * Set's the currentState so the game can begin. Game expected to be played

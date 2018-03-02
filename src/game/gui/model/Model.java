@@ -50,6 +50,11 @@ public class Model
         moves = new Move[9][9];
     }
 
+    public int getGridPos(int x, int y)
+    {
+        return bll.calculateMacroGrid(x, y);
+    }
+
     public IGameState getMakro()
     {
         return gm.getCurrentState();
