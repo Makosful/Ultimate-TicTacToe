@@ -64,8 +64,8 @@ public class GameController implements Initializable
 
     private boolean isFieldOccupied(String[][] macro, int x, int y)
     {
-        return macro[x][y].equalsIgnoreCase(GameManager.player_o)
-               || macro[x][y].equalsIgnoreCase(GameManager.player_x);
+        return macro[x][y].equalsIgnoreCase(GameManager.PLAYER_O)
+               || macro[x][y].equalsIgnoreCase(GameManager.PLAYER_X);
     }
 
     private void setupListeners()
@@ -212,7 +212,6 @@ public class GameController implements Initializable
                 isFieldReady = !isFieldReady;
                 turnCounter++;
                 updateText();
-                System.out.println("X+Y: " + btn.getId());
             }
         }
         showCurrentField();
@@ -275,27 +274,42 @@ public class GameController implements Initializable
         {
             for (int x = 0; x < 3; x++)
             {
+                GridPane grid = (GridPane) gridMacro.getChildren().get(model.getGridPos(x, y));
+                if (!isFieldOccupied(macro, x, y))
+                {
+                    // If the Macro Field isn't won by either player
+                    // AKA: The field is empty
+                    grid.setStyle(
+                            "-fx-border-width: 5px;"
+                            + "-fx-background-color: transparent;"
+                    );
+                }
                 if (macro[x][y].equalsIgnoreCase(IField.AVAILABLE_FIELD))
                 {
                     // If the MAcro Field is available for moves
                     // AKA: The field is Available
+                    grid.setStyle(
+                            "-fx-border-width: 5px;"
+                            + "-fx-background-color: Magenta;"
+                    );
                 }
-                else if (!isFieldOccupied(macro, x, y))
-                {
-                    // If the Macro Field isn't won by either player
-                    // AKA: The field is empty
-                    GridPane grid = (GridPane) gridMacro.getChildren().get(model.getGridPos(x, y));
-                }
-                else if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
+                if (macro[x][y].equalsIgnoreCase(GameManager.PLAYER_O))
                 {
                     // If player X has won this field
+                    grid.setStyle(
+                            "-fx-border-width: 5px;"
+                            + "-fx-background-color: #0000FF;"
+                    );
                 }
-                else if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
+                if (macro[x][y].equalsIgnoreCase(GameManager.PLAYER_X))
                 {
                     // If player O has won this field
+                    grid.setStyle(
+                            "-fx-border-width: 5px;"
+                            + "-fx-background-color: #FF0000;"
+                    );
                 }
             }
-            System.out.println();
         }
         //System.out.print(model.getMakro().getField().AVAILABLE_FIELD);
     }

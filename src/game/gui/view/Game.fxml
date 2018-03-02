@@ -20,7 +20,7 @@
     <center>
         <AnchorPane>
             <children>
-                <GridPane fx:id="gridMacro" alignment="CENTER" hgap="10.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <GridPane fx:id="gridMacro" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
                         <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="10.0" />
@@ -32,7 +32,7 @@
                         <RowConstraints fillHeight="false" minHeight="10.0" vgrow="NEVER" />
                     </rowConstraints>
                     <children>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" styleClass="grid-pane" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -91,7 +91,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="20.0" styleClass="grid-pane" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -150,7 +150,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="320.0" layoutY="20.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="320.0" layoutY="20.0" styleClass="grid-pane" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -209,7 +209,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="300.0" layoutY="20.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="300.0" layoutY="20.0" styleClass="grid-pane" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -268,7 +268,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="300.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="300.0" styleClass="grid-pane" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -327,7 +327,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="300.0" layoutY="300.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="300.0" layoutY="300.0" styleClass="grid-pane" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -386,7 +386,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="580.0" layoutY="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="580.0" layoutY="300.0" styleClass="grid-pane" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -445,7 +445,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="580.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="20.0" layoutY="580.0" styleClass="grid-pane" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
@@ -504,7 +504,7 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="300.0" layoutY="580.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="300.0" layoutY="580.0" styleClass="grid-pane" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <columnConstraints>
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" minWidth="10.0" />

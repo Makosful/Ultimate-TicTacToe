@@ -22,3 +22,8 @@
     -fx-background-radius: 10px;
     -fx-background-color: gray;
 }
+
+.grid-pane {
+    -fx-border-color: transparent;
+    -fx-border-width: 5px;
+}
