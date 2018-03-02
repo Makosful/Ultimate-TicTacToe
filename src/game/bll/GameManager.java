@@ -262,6 +262,18 @@ public class GameManager
                 }
             }
         }
+
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                if (!isFieldOccupied(macro, x, y))
+                {
+                    macro[x][y] = IField.EMPTY_FIELD;
+                }
+            }
+        }
+        macro[x1 / 3][y1 / 3] = IField.AVAILABLE_FIELD;
     }
 
     private Position getMicroPlacement(IMove move)
