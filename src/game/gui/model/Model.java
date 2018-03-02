@@ -50,6 +50,11 @@ public class Model
         moves = new Move[9][9];
     }
 
+    public IGameState getMakro()
+    {
+        return gm.getCurrentState();
+    }
+
     /**
      * Gives the Models class a StageManager
      *

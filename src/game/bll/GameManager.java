@@ -213,6 +213,11 @@ public class GameManager
         }
     }
 
+    public IGameState getCurrentState()
+    {
+        return currentState;
+    }
+
     /**
      * Changes the fields between the four poinits to be available
      *
