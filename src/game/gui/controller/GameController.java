@@ -79,7 +79,9 @@ public class GameController implements Initializable
                 btn.setOnMouseExited((MouseEvent me) ->
                 {
                     if (!btn.isDisabled())
+                    {
                         btn.setText("");
+                    }
                     else
                     {
                         //Do nothing
@@ -109,6 +111,7 @@ public class GameController implements Initializable
         alert.showAndWait().ifPresent(rs ->
         {
             if (rs == ButtonType.YES)
+            {
                 for (int i = 0; i < gridMacro.getChildren().size(); i++)
                 {
                     GridPane grid = (GridPane) gridMacro.getChildren().get(i);
@@ -121,6 +124,7 @@ public class GameController implements Initializable
                         turnCounter = 0;
                     }
                 }
+            }
         });
     }
 
@@ -131,7 +135,9 @@ public class GameController implements Initializable
         alert.showAndWait().ifPresent(rs ->
         {
             if (rs == ButtonType.YES)
+            {
                 System.exit(0);
+            }
         });
     }
 
@@ -190,7 +196,10 @@ public class GameController implements Initializable
             if (model.doMove(btn.getId()))
             {
                 btn.setText(playerChar);
-                btn.setStyle("-fx-text-fill: black");
+                if (playerChar == "X")
+                {
+//                    gridMacro.getChildren()..setStyle("-fx-background-: black");
+                }
                 btn.disableProperty().set(true);
                 isFieldReady = !isFieldReady;
                 turnCounter++;
@@ -198,10 +207,11 @@ public class GameController implements Initializable
                 System.out.println("X+Y: " + btn.getId());
             }
         }
+        showCurrentField();
     }
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Change Size">
 
+    //<editor-fold defaultstate="collapsed" desc="Change Size">
     /**
      * Changes the field size
      */
@@ -250,13 +260,31 @@ public class GameController implements Initializable
     }
     //</editor-fold>
 
+    private void showCurrentField()
+    {
+        String[][] mB = model.getMakro().getField().getMacroboard();
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                System.out.print(mB[x][y]);
+            }
+            System.out.println();
+        }
+        //System.out.print(model.getMakro().getField().AVAILABLE_FIELD);
+    }
+
     private void updateText()
     {
         // This actually tracks the number of moves.
         // One turn is when both players have had a chance to move
         if (turnCounter == 1)
+        {
             lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turn");
+        }
         else
+        {
             lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turns");
+        }
     }
 }
