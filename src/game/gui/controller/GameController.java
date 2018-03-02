@@ -275,22 +275,22 @@ public class GameController implements Initializable
         {
             for (int x = 0; x < 3; x++)
             {
-                if (!isFieldOccupied(macro, x, y))
-                {
-                    // If the Macro Field isn't won by either player
-                    // AKA: The field is empty
-                    GridPane grid = (GridPane) gridMacro.getChildren().get(model.getGridPos(x, y));
-                }
                 if (macro[x][y].equalsIgnoreCase(IField.AVAILABLE_FIELD))
                 {
                     // If the MAcro Field is available for moves
                     // AKA: The field is Available
                 }
-                if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
+                else if (!isFieldOccupied(macro, x, y))
+                {
+                    // If the Macro Field isn't won by either player
+                    // AKA: The field is empty
+                    GridPane grid = (GridPane) gridMacro.getChildren().get(model.getGridPos(x, y));
+                }
+                else if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
                 {
                     // If player X has won this field
                 }
-                if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
+                else if (macro[x][y].equalsIgnoreCase(GameManager.player_x))
                 {
                     // If player O has won this field
                 }
