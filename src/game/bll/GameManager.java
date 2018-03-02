@@ -18,35 +18,6 @@ import game.bll.interfaces.IGameState;
 public class GameManager
 {
 
-    private boolean isFieldOccupied(String[][] board, int x, int y)
-    {
-        return !board[x][y].equalsIgnoreCase(player_o)
-               && !board[x][y].equalsIgnoreCase(player_x);
-    }
-
-    /**
-     * Three different game modes.
-     */
-    public enum GameMode
-    {
-        HumanVsHuman,
-        HumanVsBot,
-        BotVsBot
-    }
-
-    public enum Position
-    {
-        TOP_LEFT,
-        TOP_MIDDLE,
-        TOP_RIGHT,
-        LEFT,
-        MIDDLE,
-        RIGHT,
-        BOTTOM_LEFT,
-        BOTTOM_MIDDLE,
-        BOTTOM_RIGHT
-    }
-
     private final IGameState currentState;
     private int currentPlayer = 0; //player0 == 0 && player1 == 1
     private GameMode mode = GameMode.HumanVsHuman;
@@ -112,7 +83,9 @@ public class GameManager
     {
         //Verify the new move
         if (!VerifyMoveLegality(move))
+        {
             return false;
+        }
 
         //Update the currentState
         UpdateBoard(move);
@@ -160,11 +133,15 @@ public class GameManager
         //NOTE: should also check whether the move is placed on an occupied spot.
         System.out.println("Checking move validity against macroboard available field");
         if (!currentState.getField().isInActiveMicroboard(move.getX(), move.getY()))
+        {
             return false;
+        }
 
         String[][] board = currentState.getField().getBoard();
         if (!board[move.getX()][move.getY()].contains(IField.AVAILABLE_FIELD))
+        {
             return false;
+        }
 
         System.out.println("Not currently checking move validity actual board");
         return true;
@@ -177,8 +154,8 @@ public class GameManager
      */
     private void UpdateBoard(IMove move)
     {
-        currentState.getField().getBoard()[move.getX()][move.getY()]
-        = getCurrentPlayerChar();
+        currentState.getField()
+                .getBoard()[move.getX()][move.getY()] = getCurrentPlayerChar();
         Position pos = getMicroPlacement(move);
         clearAvailableMoves();
         switch (pos)
@@ -208,7 +185,7 @@ public class GameManager
                 setAvailableMoves(3, 5, 6, 8);
                 break;
             case BOTTOM_RIGHT:
-                setAvailableMoves(6, 5, 6, 8);
+                setAvailableMoves(6, 8, 6, 8);
                 break;
         }
     }
@@ -220,9 +197,15 @@ public class GameManager
     {
         String[][] board = currentState.getField().getBoard();
         for (int y = 0; y < 9; y++)
+        {
             for (int x = 0; x < 9; x++)
-                if (isFieldOccupied(board, x, y))
+            {
+                if (!isFieldOccupied(board, x, y))
+                {
                     board[x][y] = IField.EMPTY_FIELD;
+                }
+            }
+        }
     }
 
     /**
@@ -235,11 +218,45 @@ public class GameManager
      */
     private void setAvailableMoves(int x1, int x2, int y1, int y2)
     {
-        String[][] board = currentState.getField().getBoard();
+        String[][] micro = currentState.getField().getBoard();
+        String[][] macro = currentState.getField().getMacroboard();
+
+        if (isFieldOccupied(macro, x1 / 3, y1 / 3))
+        {
+            for (int y = 0; y < 9; y++)
+            {
+                for (int x = 0; x < 9; x++)
+                {
+                    if (!isFieldOccupied(micro, x, y))
+                    {
+                        micro[x][y] = IField.AVAILABLE_FIELD;
+                    }
+                }
+            }
+
+            for (int y = y1; y <= y2; y++)
+            {
+                for (int x = x1; x <= x2; x++)
+                {
+                    if (!isFieldOccupied(micro, x, y))
+                    {
+                        micro[x][y] = IField.EMPTY_FIELD;
+                    }
+                }
+            }
+            return;
+        }
+
         for (int y = y1; y <= y2; y++)
+        {
             for (int x = x1; x <= x2; x++)
-                if (isFieldOccupied(board, x, y))
-                    board[x][y] = IField.AVAILABLE_FIELD;
+            {
+                if (!isFieldOccupied(micro, x, y))
+                {
+                    micro[x][y] = IField.AVAILABLE_FIELD;
+                }
+            }
+        }
     }
 
     private Position getMicroPlacement(IMove move)
@@ -248,23 +265,41 @@ public class GameManager
         int y = move.getY();
 
         if (isTopLeft(x, y))
+        {
             return Position.TOP_LEFT;
+        }
         else if (isTopMiddle(x, y))
+        {
             return Position.TOP_MIDDLE;
+        }
         else if (isTopRight(x, y))
+        {
             return Position.TOP_RIGHT;
+        }
         else if (isLeft(x, y))
+        {
             return Position.LEFT;
+        }
         else if (isMiddle(x, y))
+        {
             return Position.MIDDLE;
+        }
         else if (isRight(x, y))
+        {
             return Position.RIGHT;
+        }
         else if (isBottomLeft(x, y))
+        {
             return Position.BOTTOM_LEFT;
+        }
         else if (isBottomMiddle(x, y))
+        {
             return Position.BOTTOM_MIDDLE;
+        }
         else if (isBottomRight(x, y))
+        {
             return Position.BOTTOM_RIGHT;
+        }
         return null;
     }
 
@@ -396,23 +431,41 @@ public class GameManager
     private void UpdateMacroboard(IMove move)
     {
         if (checkWinner(0, 0))
+        {
             setWinMicro(0, 0);
+        }
         else if (checkWinner(3, 0))
+        {
             setWinMicro(3, 0);
+        }
         else if (checkWinner(6, 0))
+        {
             setWinMicro(6, 0);
+        }
         else if (checkWinner(0, 3))
+        {
             setWinMicro(0, 3);
+        }
         else if (checkWinner(3, 3))
+        {
             setWinMicro(3, 3);
+        }
         else if (checkWinner(6, 3))
+        {
             setWinMicro(6, 3);
+        }
         else if (checkWinner(0, 6))
+        {
             setWinMicro(0, 6);
+        }
         else if (checkWinner(3, 6))
+        {
             setWinMicro(3, 6);
+        }
         else if (checkWinner(6, 6))
+        {
             setWinMicro(6, 6);
+        }
     }
 
     /**
@@ -438,7 +491,9 @@ public class GameManager
     {
         if (a.equalsIgnoreCase(IField.AVAILABLE_FIELD)
             || a.equalsIgnoreCase(IField.EMPTY_FIELD))
+        {
             return false;
+        }
 
         return a.equalsIgnoreCase(b) && a.equalsIgnoreCase(c);
     }
@@ -450,17 +505,36 @@ public class GameManager
         macro[x / 3][y / 3] = getCurrentPlayerChar();
     }
 
+    /**
+     * Checks if a field is occupied by a player
+     *
+     * @param board
+     * @param x
+     * @param y
+     *
+     * @return Returns true if the field is occupied
+     */
+    private boolean isFieldOccupied(String[][] board, int x, int y)
+    {
+        return board[x][y].equalsIgnoreCase(player_o)
+               || board[x][y].equalsIgnoreCase(player_x);
+    }
+
     private void printDebugField(String[][] microBoard)
     {
         System.out.println("Micro Boards");
         for (int y = 0; y < 9; y++)
         {
             if (y % 3 == 0 && y != 0)
+            {
                 System.out.println("------+-------+------");
+            }
             for (int x = 0; x < 9; x++)
             {
                 if (x % 3 == 0 && x != 0)
+                {
                     System.out.print("| ");
+                }
                 System.out.print(microBoard[x][y] + " ");
             }
             System.out.println();
@@ -472,7 +546,9 @@ public class GameManager
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
+            {
                 System.out.print(macroboard[x][y] + " ");
+            }
             System.out.println();
         }
     }
@@ -484,8 +560,35 @@ public class GameManager
     public String getCurrentPlayerChar()
     {
         if (currentPlayer == 0)
+        {
             return player_x;
+        }
         else
+        {
             return player_o;
+        }
+    }
+
+    /**
+     * Three different game modes.
+     */
+    public enum GameMode
+    {
+        HumanVsHuman,
+        HumanVsBot,
+        BotVsBot
+    }
+
+    public enum Position
+    {
+        TOP_LEFT,
+        TOP_MIDDLE,
+        TOP_RIGHT,
+        LEFT,
+        MIDDLE,
+        RIGHT,
+        BOTTOM_LEFT,
+        BOTTOM_MIDDLE,
+        BOTTOM_RIGHT
     }
 }
