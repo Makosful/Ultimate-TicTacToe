@@ -90,6 +90,7 @@ public class GameManager
         //Update the currentState
         UpdateBoard(move);
         UpdateMacroboard(move);
+        setAvailableMoves(move);
 
         //Update currentPlayer
         currentPlayer = (currentPlayer + 1) % 2;
@@ -156,36 +157,40 @@ public class GameManager
     {
         currentState.getField()
                 .getBoard()[move.getX()][move.getY()] = getCurrentPlayerChar();
+    }
+
+    private void setAvailableMoves(IMove move)
+    {
         Position pos = getMicroPlacement(move);
         clearAvailableMoves();
         switch (pos)
         {
             case TOP_LEFT:
-                setAvailableMoves(0, 2, 0, 2);
+                setMovesOnBoard(0, 2, 0, 2);
                 break;
             case TOP_MIDDLE:
-                setAvailableMoves(3, 5, 0, 2);
+                setMovesOnBoard(3, 5, 0, 2);
                 break;
             case TOP_RIGHT:
-                setAvailableMoves(6, 8, 0, 2);
+                setMovesOnBoard(6, 8, 0, 2);
                 break;
             case LEFT:
-                setAvailableMoves(0, 2, 3, 5);
+                setMovesOnBoard(0, 2, 3, 5);
                 break;
             case MIDDLE:
-                setAvailableMoves(3, 5, 3, 5);
+                setMovesOnBoard(3, 5, 3, 5);
                 break;
             case RIGHT:
-                setAvailableMoves(6, 8, 3, 5);
+                setMovesOnBoard(6, 8, 3, 5);
                 break;
             case BOTTOM_LEFT:
-                setAvailableMoves(0, 2, 6, 8);
+                setMovesOnBoard(0, 2, 6, 8);
                 break;
             case BOTTOM_MIDDLE:
-                setAvailableMoves(3, 5, 6, 8);
+                setMovesOnBoard(3, 5, 6, 8);
                 break;
             case BOTTOM_RIGHT:
-                setAvailableMoves(6, 8, 6, 8);
+                setMovesOnBoard(6, 8, 6, 8);
                 break;
         }
     }
@@ -216,7 +221,7 @@ public class GameManager
      * @param y1 First corner Y
      * @param y2 Second corner Y
      */
-    private void setAvailableMoves(int x1, int x2, int y1, int y2)
+    private void setMovesOnBoard(int x1, int x2, int y1, int y2)
     {
         String[][] micro = currentState.getField().getBoard();
         String[][] macro = currentState.getField().getMacroboard();
@@ -430,41 +435,15 @@ public class GameManager
 
     private void UpdateMacroboard(IMove move)
     {
-        if (checkWinner(0, 0))
+        for (int y = 0; y < 9; y += 3)
         {
-            setWinMicro(0, 0);
-        }
-        else if (checkWinner(3, 0))
-        {
-            setWinMicro(3, 0);
-        }
-        else if (checkWinner(6, 0))
-        {
-            setWinMicro(6, 0);
-        }
-        else if (checkWinner(0, 3))
-        {
-            setWinMicro(0, 3);
-        }
-        else if (checkWinner(3, 3))
-        {
-            setWinMicro(3, 3);
-        }
-        else if (checkWinner(6, 3))
-        {
-            setWinMicro(6, 3);
-        }
-        else if (checkWinner(0, 6))
-        {
-            setWinMicro(0, 6);
-        }
-        else if (checkWinner(3, 6))
-        {
-            setWinMicro(3, 6);
-        }
-        else if (checkWinner(6, 6))
-        {
-            setWinMicro(6, 6);
+            for (int x = 0; x < 9; x += 3)
+            {
+                if (checkWinner(x, y))
+                {
+                    setWinMicro(x, y);
+                }
+            }
         }
     }
 
@@ -501,8 +480,10 @@ public class GameManager
     private void setWinMicro(int x, int y)
     {
         String[][] macro = currentState.getField().getMacroboard();
-
-        macro[x / 3][y / 3] = getCurrentPlayerChar();
+        if (!isFieldOccupied(macro, x / 3, y / 3))
+        {
+            macro[x / 3][y / 3] = getCurrentPlayerChar();
+        }
     }
 
     /**
