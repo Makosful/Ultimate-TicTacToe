@@ -23,8 +23,8 @@ public class GameManager
     private GameMode mode = GameMode.HumanVsHuman;
     private IBot bot = null;
     private IBot bot2 = null;
-    public static final String player_x = "X";
-    public static final String player_o = "O";
+    public static final String PLAYER_X = "X";
+    public static final String PLAYER_O = "O";
 
     /**
      * Set's the currentState so the game can begin. Game expected to be played
@@ -166,31 +166,31 @@ public class GameManager
         switch (pos)
         {
             case TOP_LEFT:
-                setMovesOnBoard(0, 2, 0, 2);
+                setMovesOnBoard(0, 0);
                 break;
             case TOP_MIDDLE:
-                setMovesOnBoard(3, 5, 0, 2);
+                setMovesOnBoard(3, 0);
                 break;
             case TOP_RIGHT:
-                setMovesOnBoard(6, 8, 0, 2);
+                setMovesOnBoard(6, 0);
                 break;
             case LEFT:
-                setMovesOnBoard(0, 2, 3, 5);
+                setMovesOnBoard(0, 3);
                 break;
             case MIDDLE:
-                setMovesOnBoard(3, 5, 3, 5);
+                setMovesOnBoard(3, 3);
                 break;
             case RIGHT:
-                setMovesOnBoard(6, 8, 3, 5);
+                setMovesOnBoard(6, 3);
                 break;
             case BOTTOM_LEFT:
-                setMovesOnBoard(0, 2, 6, 8);
+                setMovesOnBoard(0, 6);
                 break;
             case BOTTOM_MIDDLE:
-                setMovesOnBoard(3, 5, 6, 8);
+                setMovesOnBoard(3, 6);
                 break;
             case BOTTOM_RIGHT:
-                setMovesOnBoard(6, 8, 6, 8);
+                setMovesOnBoard(6, 6);
                 break;
         }
     }
@@ -200,14 +200,16 @@ public class GameManager
      */
     private void clearAvailableMoves()
     {
-        String[][] board = currentState.getField().getBoard();
+        String[][] micro = currentState.getField().getBoard();
+        String[][] macro = currentState.getField().getMacroboard();
         for (int y = 0; y < 9; y++)
         {
             for (int x = 0; x < 9; x++)
             {
-                if (!isFieldOccupied(board, x, y))
+                if (!isFieldOccupied(micro, x, y))
                 {
-                    board[x][y] = IField.EMPTY_FIELD;
+                    micro[x][y] = IField.EMPTY_FIELD;
+                    macro[x / 3][y / 3] = IField.EMPTY_FIELD;
                 }
             }
         }
@@ -221,64 +223,56 @@ public class GameManager
     /**
      * Changes the fields between the four poinits to be available
      *
-     * @param x1 First corner X
-     * @param x2 Second corner X
-     * @param y1 First corner Y
-     * @param y2 Second corner Y
+     * @param cordX First corner X
+     * @param x2    Second corner X
+     * @param cordY First corner Y
+     * @param y2    Second corner Y
      */
-    private void setMovesOnBoard(int x1, int x2, int y1, int y2)
+    private void setMovesOnBoard(int cordX, int cordY)
     {
         String[][] micro = currentState.getField().getBoard();
         String[][] macro = currentState.getField().getMacroboard();
 
-        if (isFieldOccupied(macro, x1 / 3, y1 / 3))
+        if (isFieldOccupied(macro, cordX / 3, cordY / 3))
         {
-            for (int y = 0; y < 9; y++)
+            // This code runs when the area you should play in is won
+            for (int y = 0; y < 9; y++) // Vertical
             {
-                for (int x = 0; x < 9; x++)
+                for (int x = 0; x < 9; x++) // Horizontal
                 {
-                    if (!isFieldOccupied(micro, x, y))
+                    if (!isFieldOccupied(macro, x / 3, y / 3))
                     {
-                        micro[x][y] = IField.AVAILABLE_FIELD;
-                    }
-                }
-            }
+                        // Sets all not-taken macro fields as available
+                        macro[x / 3][y / 3] = IField.AVAILABLE_FIELD;
 
-            for (int y = y1; y <= y2; y++)
-            {
-                for (int x = x1; x <= x2; x++)
-                {
-                    if (!isFieldOccupied(micro, x, y))
-                    {
+                        // Sets all micro fields within the taken areas as empty
                         micro[x][y] = IField.EMPTY_FIELD;
                     }
-                }
-            }
-            return;
+                    if (!isFieldOccupied(micro, x, y))
+                    {
+                        // Sets all empty fields as avalable
+                        micro[x][y] = IField.AVAILABLE_FIELD;
+                    }
+                } // End of Horizontal
+            } // End of Vertical
         }
-
-        for (int y = y1; y <= y2; y++)
+        else
         {
-            for (int x = x1; x <= x2; x++)
+            // This code fills a given area with available spaces
+            for (int y = cordY; y < cordY + 3; y++) // Vertical
             {
-                if (!isFieldOccupied(micro, x, y))
+                for (int x = cordX; x < cordX + 3; x++) // Horizontal
                 {
-                    micro[x][y] = IField.AVAILABLE_FIELD;
-                }
-            }
-        }
+                    if (!isFieldOccupied(micro, x, y))
+                    {
+                        // Fills the selected area
+                        micro[x][y] = IField.AVAILABLE_FIELD;
+                    }
+                } // End of Horizontal
+            } // End of Vertical
 
-        for (int y = 0; y < 3; y++)
-        {
-            for (int x = 0; x < 3; x++)
-            {
-                if (!isFieldOccupied(macro, x, y))
-                {
-                    macro[x][y] = IField.EMPTY_FIELD;
-                }
-            }
+            macro[cordX / 3][cordY / 3] = IField.AVAILABLE_FIELD;
         }
-        macro[x1 / 3][y1 / 3] = IField.AVAILABLE_FIELD;
     }
 
     private Position getMicroPlacement(IMove move)
@@ -514,8 +508,8 @@ public class GameManager
      */
     private boolean isFieldOccupied(String[][] board, int x, int y)
     {
-        return board[x][y].equalsIgnoreCase(player_o)
-               || board[x][y].equalsIgnoreCase(player_x);
+        return board[x][y].equalsIgnoreCase(PLAYER_O)
+               || board[x][y].equalsIgnoreCase(PLAYER_X);
     }
 
     private void printDebugField(String[][] microBoard)
@@ -559,11 +553,11 @@ public class GameManager
     {
         if (currentPlayer == 0)
         {
-            return player_x;
+            return PLAYER_X;
         }
         else
         {
-            return player_o;
+            return PLAYER_O;
         }
     }
 
