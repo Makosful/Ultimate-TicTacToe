@@ -27,6 +27,8 @@ public class GameController implements Initializable
 
     private Model model;
 
+    private GameModeController gmc;
+
     @FXML // Used in handleSizeChange
     private ToggleGroup windowSize;
     @FXML // Used in handleSizeChange
@@ -35,6 +37,7 @@ public class GameController implements Initializable
     private RadioMenuItem size2;
     @FXML // Used in handleSizeChange
     private RadioMenuItem size3;
+
     @FXML
     private GridPane gridMacro;
     @FXML
@@ -45,7 +48,12 @@ public class GameController implements Initializable
     private boolean isFieldReady;
     private int turnCounter;
 
-    final static String BTN_GREEN_TEXT = "-fx-text-fill: rgba(0, 255, 0, 0.5);";
+    private String playerOneName;
+    private String playerOneColor;
+    private String playerTwoName;
+    private String playerTwoColor;
+
+    private final static String BTN_GREEN_TEXT = "-fx-text-fill: rgba(0, 255, 0, 0.5);";
 
     /**
      * Initializes the controller class.
@@ -54,12 +62,21 @@ public class GameController implements Initializable
      * @param rb
      */
     @Override
+
     public void initialize(URL url, ResourceBundle rb)
     {
         model = Model.getInstance();
+
         model.calculateFieldPositions(gridMacro);
 
         setupListeners();
+        saveGameModeControllerInfo();
+        System.out.println(playerOneName);
+        System.out.println(playerOneColor);
+
+        System.out.println(playerTwoName);
+        System.out.println(playerTwoColor);
+
     }
 
     private boolean isFieldOccupied(String[][] macro, int x, int y)
@@ -95,10 +112,8 @@ public class GameController implements Initializable
                         //Do nothing
                     }
                 });
-
             }
         }
-
     }
 
     //<editor-fold defaultstate="collapsed" desc="FXML Callbacks">
@@ -279,35 +294,23 @@ public class GameController implements Initializable
                 {
                     // If the Macro Field isn't won by either player
                     // AKA: The field is empty
-                    grid.setStyle(
-                            "-fx-border-width: 5px;"
-                            + "-fx-background-color: transparent;"
-                    );
+                    grid.setStyle("-fx-background-color: transparent;");
                 }
                 if (macro[x][y].equalsIgnoreCase(IField.AVAILABLE_FIELD))
                 {
                     // If the MAcro Field is available for moves
                     // AKA: The field is Available
-                    grid.setStyle(
-                            "-fx-border-width: 5px;"
-                            + "-fx-background-color: Magenta;"
-                    );
+                    grid.setStyle("-fx-border-color: salmon;");
                 }
                 if (macro[x][y].equalsIgnoreCase(GameManager.PLAYER_O))
                 {
                     // If player X has won this field
-                    grid.setStyle(
-                            "-fx-border-width: 5px;"
-                            + "-fx-background-color: #0000FF;"
-                    );
+                    grid.setStyle("-fx-background-color: #0000FF;");
                 }
                 if (macro[x][y].equalsIgnoreCase(GameManager.PLAYER_X))
                 {
                     // If player O has won this field
-                    grid.setStyle(
-                            "-fx-border-width: 5px;"
-                            + "-fx-background-color: #FF0000;"
-                    );
+                    grid.setStyle("-fx-background-color: #FF0000;");
                 }
             }
         }
@@ -327,4 +330,14 @@ public class GameController implements Initializable
             lblAmountOfTurns.setText(String.valueOf(turnCounter) + " turns");
         }
     }
+
+    private void saveGameModeControllerInfo()
+    {
+        playerOneName = gmc.getPlayerOneName();
+        playerOneColor = gmc.getPlayerOneColor();
+
+        playerTwoName = gmc.getPlayerTwoName();
+        playerTwoColor = gmc.getPlayerTwoColor();
+    }
+
 }

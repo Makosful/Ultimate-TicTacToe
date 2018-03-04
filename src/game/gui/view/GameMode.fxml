@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXColorPicker?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" minHeight="250.0" minWidth="350.0" prefHeight="250.0" prefWidth="350.0" stylesheets="@../css/GameModeStylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.controller.GameModeController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" minHeight="300.0" minWidth="350.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: gray;" stylesheets="@../css/GameModeStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.controller.GameModeController">
    <children>
-      <ToggleButton fx:id="btnPvC" layoutX="20.0" layoutY="115.0" mnemonicParsing="false" onAction="#PlayVsComputer" selected="true" text="Player vs Computer">
+      <ToggleButton fx:id="btnPvC" layoutX="19.0" layoutY="186.0" mnemonicParsing="false" onAction="#PlayVsComputer" selected="true" text="Player vs Computer">
          <padding>
             <Insets left="5.0" right="5.0" />
          </padding>
@@ -21,7 +25,7 @@
             <Insets left="5.0" right="5.0" />
          </opaqueInsets>
       </ToggleButton>
-      <ToggleButton fx:id="btnPvP" layoutX="179.0" layoutY="115.0" mnemonicParsing="false" onAction="#PlayVsPlayer" prefWidth="151.0" text="Player vs Player" toggleGroup="$GameMode">
+      <ToggleButton fx:id="btnPvP" layoutX="207.0" layoutY="186.0" mnemonicParsing="false" onAction="#PlayVsPlayer" prefWidth="125.0" text="Player vs Player" toggleGroup="$GameMode">
          <padding>
             <Insets left="5.0" right="5.0" />
          </padding>
@@ -29,13 +33,45 @@
             <Insets left="5.0" right="5.0" />
          </opaqueInsets>
       </ToggleButton>
-      <JFXButton fx:id="btnPlay" layoutX="132.0" layoutY="185.0" onAction="#StartGame" ripplerFill="#00b500" text="PLAY">
+      <JFXButton fx:id="btnPlay" layoutX="132.0" layoutY="235.0" onAction="#StartGame" ripplerFill="#00b500" text="PLAY">
          <font>
             <Font size="24.0" />
          </font></JFXButton>
       <Label layoutX="81.0" layoutY="14.0" text="Make your choice">
          <font>
             <Font size="24.0" />
-         </font></Label>
+         </font>
+      </Label>
+      <HBox layoutX="50.0" layoutY="49.0" prefHeight="109.0" prefWidth="250.0">
+         <children>
+            <VBox>
+               <children>
+                  <Label fx:id="lblPlayerOneName" text="Name for Player 1" />
+                  <TextField fx:id="txtPlayerOneName">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblPlayerOneColor" text="Color for Player 1" />
+                  <JFXColorPicker fx:id="playerOneColorPicker" onAction="#setPlayerTwoColor" promptText="Pick a color..." />
+               </children>
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0">
+               <children>
+                  <Label fx:id="lblPlayerTwoName" text="Name for Bot" />
+                  <TextField fx:id="txtPlayerTwoName">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblPlayerTwoColor" text="Color for Bot" />
+                  <JFXColorPicker fx:id="playerTwoColorPicker" onAction="#setPlayerTwoColor" promptText="Pick a color..." />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

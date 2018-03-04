@@ -9,21 +9,9 @@
     -fx-border-color: transparent;
 }
 
-.button:hover {
-    -fx-border-color: rgba(0, 255, 0, 0.25);
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
-    -fx-border-width: 3px;
-}
-
-.button:disabled, .button:disabled > * {
-    -fx-opacity: 1;
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
-    -fx-background-color: gray;
-}
-
 .grid-pane {
     -fx-border-color: transparent;
     -fx-border-width: 5px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
 }
