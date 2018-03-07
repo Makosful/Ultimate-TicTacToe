@@ -81,8 +81,7 @@ public class GameController implements Initializable
 
     private boolean isFieldOccupied(String[][] macro, int x, int y)
     {
-        return macro[x][y].equalsIgnoreCase(GameManager.PLAYER_O)
-               || macro[x][y].equalsIgnoreCase(GameManager.PLAYER_X);
+        return macro[x][y].equalsIgnoreCase(GameManager.PLAYER_O) || macro[x][y].equalsIgnoreCase(GameManager.PLAYER_X);
     }
 
     private void setupListeners()
@@ -226,7 +225,7 @@ public class GameController implements Initializable
                 btn.disableProperty().set(true);
                 isFieldReady = !isFieldReady;
                 turnCounter++;
-                updateText();
+                updateLblCounter();
             }
         }
         showCurrentField();
@@ -317,7 +316,7 @@ public class GameController implements Initializable
         //System.out.print(model.getMakro().getField().AVAILABLE_FIELD);
     }
 
-    private void updateText()
+    private void updateLblCounter()
     {
         // This actually tracks the number of moves.
         // One turn is when both players have had a chance to move
@@ -339,5 +338,4 @@ public class GameController implements Initializable
         playerTwoName = gmc.getPlayerTwoName();
         playerTwoColor = gmc.getPlayerTwoColor();
     }
-
 }

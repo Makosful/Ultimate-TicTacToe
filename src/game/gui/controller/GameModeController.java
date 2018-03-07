@@ -48,9 +48,7 @@ public class GameModeController implements Initializable
     private TextField txtPlayerTwoName;
 
     private String playerOneColor;
-    private String playerOneName;
     private String playerTwoColor;
-    private String playerTwoName;
 
     private Model model;
 
@@ -60,7 +58,10 @@ public class GameModeController implements Initializable
         model = Model.getInstance();
 
         playerOneColorPicker.setValue(Color.BLUE);
+        txtPlayerOneName.setText("Player 1");
+
         playerTwoColorPicker.setValue(Color.RED);
+        txtPlayerTwoName.setText("Player 2");
 
         setupNameListeners();
     }
@@ -107,8 +108,14 @@ public class GameModeController implements Initializable
     @FXML
     private void StartGame(ActionEvent event)
     {
-        model.changeScene(2);
         System.out.print(txtPlayerOneName.getText().trim() + " & " + txtPlayerTwoName.getText().trim());
+
+        model.changeScene(2);
+    }
+
+    public String getPlayerOneName()
+    {
+        return txtPlayerOneName.getText().trim();
     }
 
     public String getPlayerOneColor()
@@ -116,14 +123,9 @@ public class GameModeController implements Initializable
         return playerOneColor;
     }
 
-    public String getPlayerOneName()
-    {
-        return playerOneName;
-    }
-
     public String getPlayerTwoName()
     {
-        return playerTwoName;
+        return txtPlayerTwoName.getText().trim();
     }
 
     public String getPlayerTwoColor()
@@ -131,16 +133,19 @@ public class GameModeController implements Initializable
         return playerTwoColor;
     }
 
-    private void setupNameListeners()
+    public void setupNameListeners()
     {
         txtPlayerOneName.textProperty().addListener((observable) ->
         {
-            playerOneName = txtPlayerOneName.getText().trim();
+            txtPlayerOneName.getText().trim();
+            System.out.println(txtPlayerOneName.getText().trim());
+
         });
 
         txtPlayerTwoName.textProperty().addListener((observable) ->
         {
-            playerTwoName = txtPlayerTwoName.getText().trim();
+            txtPlayerTwoName.getText().trim();
+            System.out.println(txtPlayerTwoName.getText().trim());
         });
 
     }
